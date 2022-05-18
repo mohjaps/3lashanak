@@ -13,7 +13,7 @@ namespace _3lashanak.Data
         public DbSet<Messages> Messages { get; set; }
         public DbSet<Packages> Packages { get; set; }
         public DbSet<Partners> Partners { get; set; }
-        public DbSet<Services> Services { get; set; }
+        public DbSet<Service> Services { get; set; }
         public DbSet<Settings> Settings { get; set; }
         public DbSet<SocialMedia> SocialMedia { get; set; }
     }
