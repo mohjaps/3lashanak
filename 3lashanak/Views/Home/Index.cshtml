@@ -1,6 +1,7 @@
 ﻿@using _3lashanak
 @using _3lashanak.Data
 @using _3lashanak.Models
+@model Messages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @inject ApplicationDbContext _context;
 @{
@@ -16,9 +17,7 @@
     List<Partners> partners = _context.Partners.ToList();
     List<Service> services = _context.Services.ToList();
     List<Packages> packages = _context.Packages.ToList();
-
-
-    ;
+    List<SocialMedia> socialmedia = _context.SocialMedia.ToList();
 }
 
 <!DOCTYPE html>
@@ -216,7 +215,7 @@
         </div>
     </div>
     
-    <form class=" container p-0 mb-5" style="font-family:'Cairo'; color: #323232; font-weight: 400!important;"  method="post">
+    <form asp-controller="Messages" asp-action="Create" class=" container p-0 mb-5" style="font-family:'Cairo'; color: #323232; font-weight: 400!important;"  method="post">
         <p class="text-center" style="font-size: 2rem; margin-bottom: 40px!important;">تواصل معنا </p>
         <div class="formContact bg-white p-5 ">
             <div class="row">
@@ -225,13 +224,15 @@
                       <b>الاسم:</b>  
                         
                     </label>
-                    <input  class="form-control rounded-3" id="exampleInputfirstname1"
+                    <input asp-for="Name"  class="form-control rounded-3" id="exampleInputfirstname1"
                            aria-describedby="firstnameHelp" />
+                    <div asp-validation-for="Name" class="text-danger"></div>
                 </div>
                 <div class="col-lg-6">
                     <label for="exampleInputEmail1" class="form-label"><b>الايميل:</b> </label>
-                    <input  class="form-control rounded-3" id="exampleInputEmail1"
+                    <input asp-for="Email"  class="form-control rounded-3" id="exampleInputEmail1"
                            aria-describedby="emailHelp">
+                    <div asp-validation-for="Email" class="text-danger"></div>
                 </div>
             </div>
             <div class="row mt-3">
@@ -240,13 +241,15 @@
                        <b>رقم الهاتف:</b> 
                         
                     </label>
-                    <input  class="form-control rounded-3" id="exampleInputphone1"
+                    <input asp-for="PhoneNumber"  class="form-control rounded-3" id="exampleInputphone1"
                            aria-describedby="phoneHelp">
+                           <div asp-validation-for="PhoneNumber" class="text-danger"></div>
                 </div>
                 <div class="col-lg-6">
                     <label for="exampleInputsubject1" class="form-label"><b>الموضوع:</b> </label>
-                    <input class="form-control rounded-3" id="exampleInputsubject1"
+                    <input asp-for="Subject" class="form-control rounded-3" id="exampleInputsubject1"
                            aria-describedby="subjectHelp">
+                           <div asp-validation-for="Subject" class="text-danger"></div>
                 </div>
             </div>
             <div class="row mt-3">
@@ -255,8 +258,9 @@
                       <b>الوصف:</b>  
                         
                     </label>
-                    <textarea  class="form-control rounded-3" id="exampleFormControlTextarea1"
+                    <textarea  asp-for="Body" class="form-control rounded-3" id="exampleFormControlTextarea1"
                               rows="7"></textarea>
+                              <div asp-validation-for="Body" class="text-danger"></div>
                 </div>
             </div>
 
@@ -289,10 +293,11 @@
                 <div class="row mt-5 justify-content-center "  style="padding-right:135px !important" >
                     <div class="col" >
                         <h5>تابعنا على السوشيال ميديا</h5>
-                      <img src="/Index/images/linkedIn.png" class="m-1" />
-                      <img src="/Index/images/Instegram.png" class="m-1" />
-                      <img src="/Index/images/twitter.png" class="m-1" />
-                      <img src="/Index/images/facebook.png" class="m-1" />
+
+                        @foreach(SocialMedia sm in socialmedia)
+                        {
+                            <img src="@sm.Image" class="m-1" />
+                        }
                     </div>
                     <div class="col-2" >
                             <h5>الصفحات</h5>
