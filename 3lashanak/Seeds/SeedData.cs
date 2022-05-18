@@ -35,7 +35,7 @@ namespace _3lashanak.Seeds
             }
 
             ////////fill Partners
-            if (_context.Partners.Any())
+            if (!_context.Partners.Any())
             {
                 List<Partners> lstPackages = new List<Partners>();
                 Partners partner1 = new Partners
