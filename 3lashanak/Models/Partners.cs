@@ -6,7 +6,7 @@ namespace _3lashanak.Models
     {
         [Key]
         public long Id { get; set; }
-        [Required]
+       
         public string Image { get; set; }
     }
 }
