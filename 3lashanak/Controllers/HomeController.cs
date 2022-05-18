@@ -24,13 +24,13 @@ namespace _3lashanak.Controllers
             this.context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
 
-            //if (context.Users.Count() <=0)
-            //{
-            //    userManager.CreateAsync(new IdentityUser(){UserName="admin", EmailConfirmed=true }, "admin");
-            //}
+            if (context.Users.Count() <= 0)
+            {
+                IdentityResult rsult = await userManager.CreateAsync(new IdentityUser() { UserName = "admin", Email = "admin@admin", EmailConfirmed = true }, "admin");
+            }
 
 
             return View();

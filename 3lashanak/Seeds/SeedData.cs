@@ -90,8 +90,8 @@ namespace _3lashanak.Seeds
                 List<Settings> lstSettings = new List<Settings>();
                 lstSettings.Add(new Settings
                 {
-                    Key = "who",
-                    Name = "من نحن",
+                    Key = "من نحن",
+                    Name = "الشركة الأولى لتقديم خدمات الطريق في الوطن العربي",
                     Icon = "/Index/images/Cars.png",
                     Type = TypeSettings.Text,
                     Value = "على الرغم من تمتع كل من المؤسسات الخمس المؤلفة لمجموعة البنك الدولي بهيكل عضوية خاص بها بالنسبة للبلدان الأعضاء، ومجالس الإدارة، واتفاقيات التأسيس الخاصة بكل منها، لكنها تعمل كوحدة واحدة لخدمة البلدان الشريكة معها. ومن غير الممكن مواجهة التحديات الإنمائية اليوم من دون أن يكون القطاع الخاص جزءاً من الحل. لكن القطاع العام هو من يرسي الأساس لتمكين استثمارات القطاع الخاص والسماح له بالنمو والازدهار. وتعطي الأدوار التكاملية لمؤسسات مجموعة البنك الدولي قدرة فريدة للمجموعة لربط الموارد المالية العالمية باحتياجات البلدان النامية. يشكل البنك الدولي للإنشاء والتعمير والمؤسسة الدولية للتنمية معًا البنك الدولي وهما يقدمان التمويل والمشورة بشأن السياسات والمساعدة الفنية",
@@ -101,38 +101,38 @@ namespace _3lashanak.Seeds
             
 
             ////////fill Settings Footer
-            if(!_context.Settings.Any(x => x.Key == "TitleFooter1"&& x.Key == "TitleFooter2" && x.Key== "TitleFooter3"))
+            if(!_context.Settings.Any(x => x.Key == "زر الهيدر" && x.Key == "زر الهيرو" && x.Key == "الهيدر") && x.Key == "الوصف")
             {
                 List<Settings> lstSettingsFooter = new List<Settings>();
                 lstSettingsFooter.Add(new Settings
                 {
-                    Key = "TitleFooter1",
-                    Name = "العنوان الأول ",
-                    Type = TypeSettings.Text,
-                    Value = "حمل التطبيق الان"
+                    Key = "زر الهيدر",
+                    Name = "حمل التطبيق الآن",
+                    Type = TypeSettings.Button,
+                    Value = "www.google.com"
                 });
                 lstSettingsFooter.Add(new Settings
                 {
-                    Key = "TitleFooter1",
-                    Name = "العنوان الأول ",
+                    Key = "زر الهيرو",
+                    Name = "حمل التطبيق الآن",
                     Icon = "/Index//images/mobile.png",
-                    Type = TypeSettings.Text,
-                    Value = "حمل التطبيق الان"
+                    Type = TypeSettings.Button,
+                    Value = "www.google.com"
                 });
                 lstSettingsFooter.Add(new Settings
                 {
-                    Key = "TitleFooter2",
-                    Name = "العنوان الثاني ",
+                    Key = "الهيدر",
+                    Name = "لا تشيل هم الطريق، خلِه علينا",
                     Type = TypeSettings.Text,
-                    Value = "تمتع بخدمات الطريق أينما كنت"
+                    Value = "علينا"
                 });
                 lstSettingsFooter.Add(new Settings
                 {
-                    Key = "TitleFooter3",
-                    Name = "العنوان الثالث ",
+                    Key = "الوصف",
+                    Name = "تمتّع بخدمة أفضل الفنّيين لأعطال السيارات",
 
                     Type = TypeSettings.Text,
-                    Value = "سعر واحد طيلة العام"
+                    Value = "في أي وقت وأي مكان في ارجاء المملكة !"
                 });
                 _context.Settings.AddRange(lstSettingsFooter);
             }
