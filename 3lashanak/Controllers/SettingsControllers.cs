@@ -1,18 +1,23 @@
 ﻿using _3lashanak.Models;
 using _3lashanak.Models.Services;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.IO;
 using System.Threading.Tasks;
-using System.Linq;
 
 namespace _3lashanak.Controllers
 {
-    public class PackagesController : Controller
+    public class SettingsControllers : Controller
     {
-        private readonly IRepository<Packages> service;
+        private readonly IRepository<Settings> service;
+        private readonly IWebHostEnvironment en;
 
-        public PackagesController(IRepository<Packages> service)
+        public SettingsControllers(IRepository<Settings> service, IWebHostEnvironment en)
         {
             this.service = service;
+            this.en = en;
         }
         public async Task<IActionResult> Index()
         {
@@ -31,17 +36,13 @@ namespace _3lashanak.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateAsync(Packages collection)
+        public async Task<ActionResult> CreateAsync(Settings collection)
         {
             try
             {
-                var items = await service.GetAll();
-                if (items.Count() > 4)
-                    return View(collection);
-                if(items.Select(x => x.IsMajor).Count() >= 1)
-                    return View();
                 if (!ModelState.IsValid)
                     return View();
+
                 if (service.Add(collection))
                     return RedirectToAction(nameof(Index));
                 return View(collection);
@@ -59,15 +60,16 @@ namespace _3lashanak.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(Packages collection)
+        public ActionResult Edit(Settings collection, IFormFile file)
         {
             try
             {
                 if (!ModelState.IsValid)
                     return View();
-                var items = await service.GetAll();
-                if (items.Select(x => x.IsMajor).Count() >= 1)
-                    return View();
+                string path = Path.Combine(en.WebRootPath, "Images");
+                using (var Stream = new FileStream(path, FileMode.Create))
+                    file.CopyTo(Stream);
+                collection.Icon = Path.Combine(en.WebRootPath, "Images", file.FileName + Guid.NewGuid());
                 if (service.Update(collection))
                     return RedirectToAction(nameof(Index));
                 return View(collection);
@@ -82,7 +84,7 @@ namespace _3lashanak.Controllers
         {
             try
             {
-                Packages msg = await service.GetOne(id);
+                Settings msg = await service.GetOne(id);
                 if (msg is null)
                     return View(nameof(Index));
                 if (service.Delete(msg))
@@ -94,5 +96,6 @@ namespace _3lashanak.Controllers
                 return View();
             }
         }
+
     }
 }
