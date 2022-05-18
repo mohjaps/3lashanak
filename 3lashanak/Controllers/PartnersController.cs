@@ -1,19 +1,23 @@
-﻿using _3lashanak.Data;
-using _3lashanak.Models;
+﻿using _3lashanak.Models;
 using _3lashanak.Models.Services;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace _3lashanak.Controllers
 {
-    public class MessagesController : Controller
+    public class PartnersController : Controller
     {
-        private readonly IRepository<Messages> service;
+        private readonly IRepository<Partners> service;
+        private readonly IWebHostEnvironment en;
 
-        public MessagesController(IRepository<Messages> service)
+        public PartnersController(IRepository<Partners> service, IWebHostEnvironment en )
         {
             this.service = service;
+            this.en = en;
         }
         public async Task<IActionResult> Index()
         {
@@ -32,12 +36,21 @@ namespace _3lashanak.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Messages collection)
+        public async Task<ActionResult> CreateAsync(Partners collection, IFormFile file)
         {
             try
             {
                 if (!ModelState.IsValid)
                     return View();
+
+                if (file is not null)
+                {
+                    string path = Path.Combine(en.WebRootPath, "Images");
+                    using (var Stream = new FileStream(path, FileMode.Create))
+                        file.CopyTo(Stream);
+                    collection.Image = Path.Combine(en.WebRootPath, "Images", file.FileName + Guid.NewGuid());
+                }
+
                 if (service.Add(collection))
                     return RedirectToAction(nameof(Index));
                 return View(collection);
@@ -55,12 +68,19 @@ namespace _3lashanak.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Messages collection)
+        public ActionResult Edit(Partners collection, IFormFile file)
         {
             try
             {
                 if (!ModelState.IsValid)
                     return View();
+                if (file is not null)
+                {
+                    string path = Path.Combine(en.WebRootPath, "Images");
+                    using (var Stream = new FileStream(path, FileMode.Create))
+                        file.CopyTo(Stream);
+                    collection.Image = Path.Combine(en.WebRootPath, "Images", file.FileName + Guid.NewGuid());
+                }
                 if (service.Update(collection))
                     return RedirectToAction(nameof(Index));
                 return View(collection);
@@ -75,7 +95,7 @@ namespace _3lashanak.Controllers
         {
             try
             {
-                Messages msg = await service.GetOne(id);
+                Partners msg = await service.GetOne(id);
                 if (msg is null)
                     return View(nameof(Index));
                 if (service.Delete(msg))
@@ -87,5 +107,6 @@ namespace _3lashanak.Controllers
                 return View();
             }
         }
+   
     }
 }

@@ -6,8 +6,8 @@ namespace _3lashanak.Models
     {
         [Key]
         public int Id { get; set; }
-        public int Image { get; set; }
-        public int Title { get; set; }
-        public int Logo { get; set; }
+        public string Image { get; set; }
+        public string Title { get; set; }
+        public string Logo { get; set; }
     }
 }

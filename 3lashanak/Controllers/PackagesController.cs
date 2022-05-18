@@ -1,17 +1,16 @@
-﻿using _3lashanak.Data;
-using _3lashanak.Models;
+﻿using _3lashanak.Models;
 using _3lashanak.Models.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace _3lashanak.Controllers
 {
-    public class MessagesController : Controller
+    public class PackagesController : Controller
     {
-        private readonly IRepository<Messages> service;
+        private readonly IRepository<Packages> service;
 
-        public MessagesController(IRepository<Messages> service)
+        public PackagesController(IRepository<Packages> service)
         {
             this.service = service;
         }
@@ -32,10 +31,14 @@ namespace _3lashanak.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Messages collection)
+        public async Task<ActionResult> CreateAsync(Packages collection)
         {
             try
             {
+                var items = await service.GetAll();
+                if (items.Count() > 4)
+                    return View(collection);
+
                 if (!ModelState.IsValid)
                     return View();
                 if (service.Add(collection))
@@ -55,7 +58,7 @@ namespace _3lashanak.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Messages collection)
+        public ActionResult Edit(Packages collection)
         {
             try
             {
@@ -75,7 +78,7 @@ namespace _3lashanak.Controllers
         {
             try
             {
-                Messages msg = await service.GetOne(id);
+                Packages msg = await service.GetOne(id);
                 if (msg is null)
                     return View(nameof(Index));
                 if (service.Delete(msg))
