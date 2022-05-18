@@ -1,8 +1,363 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using _3lashanak
+@using _3lashanak.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+
+    <!-- Css Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.2/bootstrap-icons.svg" />
+    <link href="/Index/css/site.css" rel="stylesheet"/>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="container-fluid px-0" style="position: fixed;">
+        <nav class="navbar navbar-expand-lg bg-white ">
+            <div class="container-fluid">
+                <a class="navbar-brand " style="padding-right: 135px;"  href="#"><img src="/Index/images/logo 1.png" /></a>
+                <button class="navbar-toggler"  type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link activeLink" aria-current="page" href="#">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mainNavLink" aria-current="page" href="#">خدماتنا</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mainNavLink" aria-current="page" href="#">الباقات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mainNavLink" aria-current="page" href="#">من نحن</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mainNavLink" aria-current="page" href="#">تواصل معنا</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex"  style="padding-left: 135px!important;"role="search">
+                        <button class="btn btnActive" type="submit">
+                            حمل التطبيق الآن
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div style="height:150px">
+
+    </div>
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row row-cols-1 row-cols-lg-2 mainHeader p-0">
+            <div  class="col order-2 order-lg-1 h-100 d-flex align-self-center justify-content-center align-items-start flex-column text-center">
+                <h1>
+                    لا تشيل هم الطريق، خلِه <span class="color-primary">علينا</span>
+                </h1>
+                <p class="headerParagraph">
+                    تمتّع بخدمة أفضل الفنّيين لأعطال السيارات<br />
+                    في أي وقت وأي مكان في ارجاء المملكة !
+                </p>
+                <div class="mt-5">
+                    <button class="btn btnActive"> <i class="bi bi-download"></i>حمل التطبيق الآن</button>
+                    <span class="p-3 btn border-0">استكشف أكثر</span>
+                </div>
+                <div class="ourParthers my-3">شركائنا</div>
+                <div class="">
+                    <img src="/Index/images/totalLogo.png" alt="" />
+                    <img src="/Index/images/hankookLogo.png" alt="" />
+                </div>
+                <div style="height: 200px;"></div>
+            </div>
+            <div class="col order-1 order-lg-2 p-0 h-100 d-flex justify-content-end">
+                <img src="/Index/images/heroCar.png" class="img-fluid p-0" alt="Car" />
+            </div>
+        </div>
+    </div>
+    <!-- Our Services -->
+    <section class="ourServices container-fluid">
+        <p class="ourServicesText my-5">خدماتنا</p>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 gap-3 gap-lg-0">
+                <div class="col-auto">
+                    <div class="p-1 colService d-flex flex-column">
+                        <div class="mx-auto">
+                            <img src="/Index/images/service1.svg" alt="" />
+                        </div>
+                        <h3 class="ourParthers">تغيير الاطارات</h3>
+                        <p>وصف عن الخدمة والتفاصيل التي تقدمها تحديداً بشكل موجز</p>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="p-1 colService d-flex flex-column">
+                        <div class="mx-auto">
+                            <img src="/Index/images/services2.svg" alt="" />
+                        </div>
+                        <h3 class="ourParthers">تغيير الاطارات</h3>
+                        <p>وصف عن الخدمة والتفاصيل التي تقدمها تحديداً بشكل موجز</p>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="p-1 colService d-flex flex-column">
+                        <div class="mx-auto">
+                            <img src="/Index/images/service3.svg" alt="" />
+                        </div>
+                        <h3 class="ourParthers">تغيير الاطارات</h3>
+                        <p>وصف عن الخدمة والتفاصيل التي تقدمها تحديداً بشكل موجز</p>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="p-1 colService d-flex flex-column">
+                        <div class="mx-auto">
+                            <img src="/Index/images/service4.svg" alt="" />
+                        </div>
+                        <h3 class="ourParthers">تغيير الاطارات</h3>
+                        <p>وصف عن الخدمة والتفاصيل التي تقدمها تحديداً بشكل موجز</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages -->
+    <section class="ourPackages container-fluid">
+        <p class="packagesText my-5">باقاتنا</p>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <div class="col-auto mx-auto">
+                    <div class="p-1 colPlckages d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="packagesTitleContainer">
+                                <h3 class="packagesTitle">الباقة الربع سنوية</h3>
+                            </div>
+                            <ul class="packagesList">
+                                <li class="packagesMember">
+                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                </li>
+                                <li class="packagesMember">
+                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                </li>
+                                <li class="packagesMember">
+                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                </li>
+                                <li class="packagesMember">
+                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="packagesFooter">
+                            <span class="d-inline-block">ابدا الآن</span>
+                            <span class="d-inline-block">200 ريال</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto mx-auto">
+                    <div class="p-1 colPlckages d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="packagesTitleContainer">
+                                <h3 class="packagesTitle">الباقة الربع سنوية</h3>
+                            </div>
+                            <ul class="packagesList">
+                                <li class="packagesMember">
+                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                </li>
+                                <li class="packagesMember">
+                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                </li>
+                                <li class="packagesMember">
+                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                </li>
+                                <li class="packagesMember">
+                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="packagesFooter">
+                            <span class="d-inline-block">ابدا الآن</span>
+                            <span class="d-inline-block">200 ريال</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto mx-auto">
+                    <div class="p-1 colPlckages colPlckagesActive d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="packagesTitleContainer">
+                                <h3 class="packagesTitle">الباقة الربع سنوية</h3>
+                            </div>
+                            <ul class="packagesList">
+                                <li class="packagesMember">
+                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                </li>
+                                <li class="packagesMember">
+                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                </li>
+                                <li class="packagesMember">
+                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                </li>
+                                <li class="packagesMember">
+                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="packagesFooter">
+                            <span class="d-inline-block">ابدا الآن</span>
+                            <span class="d-inline-block">200 ريال</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="container " style="margin-bottom: 80px!important; color: #323232; ">
+        
+        <div class="row justify-content-center" style="text-align: center;font-family:'Cairo';">
+            <p class="text-center" style="font-size: 2rem; margin-bottom: 40px!important;"> من نحن </p>
+           
+            <div class="col-12 col-md" style="font-size: 1.2rem; text-align: right;">
+                   <h3 style="margin-bottom: 32px!important;">الشركة الأولى لتقديم خدمات  الطريق 
+                    في الوطن العربي</h3>
+
+                    <p style="line-height: 40px; color: #797979;">على الرغم من تمتع كل من المؤسسات الخمس المؤلفة لمجموعة البنك الدولي بهيكل عضوية خاص بها بالنسبة للبلدان الأعضاء، ومجالس الإدارة، واتفاقيات التأسيس الخاصة بكل منها، لكنها تعمل كوحدة واحدة لخدمة البلدان الشريكة معها. ومن غير الممكن مواجهة التحديات الإنمائية اليوم من دون أن يكون القطاع الخاص جزءاً من الحل. لكن القطاع العام هو من يرسي الأساس لتمكين استثمارات القطاع الخاص والسماح له بالنمو والازدهار. وتعطي الأدوار التكاملية لمؤسسات مجموعة البنك الدولي قدرة فريدة للمجموعة لربط الموارد المالية العالمية باحتياجات البلدان النامية. 
+                        يشكل البنك الدولي للإنشاء والتعمير والمؤسسة الدولية للتنمية معًا البنك الدولي وهما يقدمان التمويل والمشورة بشأن السياسات والمساعدة الفنية </p>
+            
+            </div>
+            <div class="col-12 col-md">
+                <div class="mainHeader">
+                   <img src="/Index/images/Cars.png"style="width:85%!important" />
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <form class=" container p-0 mb-5" style="font-family:'Cairo'; color: #323232; font-weight: 400!important;"  method="post">
+        <p class="text-center" style="font-size: 2rem; margin-bottom: 40px!important;">تواصل معنا </p>
+        <div class="formContact bg-white p-5 ">
+            <div class="row">
+                <div class=" col-lg-6">
+                    <label for="exampleInputfirstname1" class="form-label">
+                      <b>الاسم:</b>  
+                        
+                    </label>
+                    <input  class="form-control rounded-3" id="exampleInputfirstname1"
+                           aria-describedby="firstnameHelp" />
+                </div>
+                <div class="col-lg-6">
+                    <label for="exampleInputEmail1" class="form-label"><b>الايميل:</b> </label>
+                    <input  class="form-control rounded-3" id="exampleInputEmail1"
+                           aria-describedby="emailHelp">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class=" col-lg-6">
+                    <label for="exampleInputphone1" class="form-label">
+                       <b>رقم الهاتف:</b> 
+                        
+                    </label>
+                    <input  class="form-control rounded-3" id="exampleInputphone1"
+                           aria-describedby="phoneHelp">
+                </div>
+                <div class="col-lg-6">
+                    <label for="exampleInputsubject1" class="form-label"><b>الموضوع:</b> </label>
+                    <input class="form-control rounded-3" id="exampleInputsubject1"
+                           aria-describedby="subjectHelp">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">
+                      <b>الوصف:</b>  
+                        
+                    </label>
+                    <textarea  class="form-control rounded-3" id="exampleFormControlTextarea1"
+                              rows="7"></textarea>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-lg-12 justify-content-start mt-3">
+                    <button type="submit" class=" btnSubmit rounded-3 px-4 float-start ">
+                        <i class="bi bi-arrow-right-short" style="font-size: 16px;"></i>
+                        ارسال
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <footer>
+        <div class="container-fluid TextFooter text-white"  dir="rtl" style="background-image: linear-gradient(0deg,#12A0BD,#a6d7e0);">
+            
+                <div class="row">
+                    <div class="col" style="margin-top: 126px; margin-right: 135px;">
+                        <h3>حمل التطبيق الان</h3>
+                        <p><i class="bi bi-star"></i>تمتع بخدمات الطريق أينما كنت</p>
+                        <p>سعر واحد طيلة العام</p>
+                        <a href="#"><img src="/Index/images/install GooglePaly.png"/></a>
+                        <a href="#"><img src="/Index/images/install IOS.png"/></a>
+                    </div>
+                    <div class="col">
+                        <img src="/Index/images/mobile.png" style="margin-top: 39px; margin-left: 135px;"/>
+                    </div>
+                    
+                </div>
+                <div class="row mt-5 justify-content-center "  style="padding-right:135px !important" >
+                    <div class="col" >
+                        <h5>تابعنا على السوشيال ميديا</h5>
+                      <img src="/Index/images/linkedIn.png" class="m-1" />
+                      <img src="/Index/images/Instegram.png" class="m-1" />
+                      <img src="/Index/images/twitter.png" class="m-1" />
+                      <img src="/Index/images/facebook.png" class="m-1" />
+                    </div>
+                    <div class="col-2" >
+                            <h5>الصفحات</h5>
+                            <p>خدماتنا</p>
+                            <p>الباقات</p>
+                            <p>من نحن</p>
+                            <p>تواصل معنا </p>
+                    </div>
+                    <div class="col" >
+                        <h5>النشرة البريدية</h5>
+                        <div class="d-flex">
+                            <input  placeholder="الإيميل" class="inputEmail"/>
+                            <button class="btnShare">اشترك</button>
+                        </div>
+                      
+                    </div>
+                    <div class="col text-center" >
+                            
+                        <img src="/Index/images/logo 1 1.png"/>
+                           <h6>Powerd by</h6>
+                        <img src="/Index/images/logo 2 1.png">
+                    </div>
+                </div>
+         
+            
+        </div>
+    </footer>
+      
+   
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <!-- Js Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

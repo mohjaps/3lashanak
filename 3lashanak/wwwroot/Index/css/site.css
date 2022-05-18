@@ -1,0 +1,440 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap");
+
+        /* NavBar */
+        .activeLink, .activeLink:active, .activeLink:focus, .activeLink:hover, .mainNavLink:hover{
+            color: var(--main-color);
+        }
+
+        .btnActive{
+            background-color: var(--main-color);
+            color: white;
+            font-weight: bold;
+        }
+        .btnActive:hover, .btnActive:focus, .btnActive:active{
+            background-color: white;
+            color: var(--main-color);
+        }
+        nav .navLink{
+            font-size: 18px;
+            font-family: 'Tajawal', sans-serif !important;
+        }
+
+            .TextFooter{
+                font-family: 'Tajawal', sans-serif !important;
+                font-size: 18px;
+            }
+            .inputEmail{
+                height: 50px;
+                width: 268px;
+                left: 0px;
+                top: 0px;
+               border-radius: 8px;
+               border: none;
+                background-color: rgba(255, 255, 255, 0.2);
+                color: white;
+            }
+            
+            .footer{
+                height: 379px;
+                width: 1440px;
+                left: 0px;
+                top: 4068px;
+                border-radius: 0px;
+
+            }
+            .inputEmail::placeholder {  
+                color: white;
+                opacity: 80%; /* Firefox */
+                padding: 0.8rem;
+                }
+              .inputEmail:focus{
+                border: none;
+                 outline-color:#b6ced32c
+              }
+              .btnShare:hover{
+                  background-color: #12A0BD!important;
+                  outline: 1px solid white!important;
+                  color: white!important;
+              }
+            .btnShare{
+
+                height: 50px;
+                width: 111px;
+                left: 0px;
+                top: 0px;
+                border-radius: 8px;
+                border: none;
+                color:  #12A0BD;
+                padding: 10px;
+                margin-right: 5px;
+
+            }
+        /* Main header */
+        
+        .formContact input,textarea{
+            background-color: #12a0bd13!important;
+        }
+        .formContact{
+            border: 1px solid #12a0bd18!important;
+            border-radius: 8px;
+        }
+        .btnSubmit{
+            background: #12A0BD;
+            color: white;
+            border: none;
+            height: 54px;
+            width: 186px;
+        }
+        .btnSubmit:hover{
+            outline: 1px solid #12A0BD!important;
+            background: white;
+            color: #12A0BD;
+        }
+        h3{
+            width: 100%;
+            margin: 0 auto!important;
+        }
+
+
+
+
+
+/* Requirements  */
+
+/* Globals */
+:root {
+    --main-color: #12a0bd;
+}
+
+.color-primary {
+    color: var(--main-color) !important;
+}
+
+* {
+    transition: all 0.5s;
+}
+
+button {
+    font-family: "Tajawal", sans-serif !important;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+/* NavBar */
+.activeLink,
+.activeLink:active,
+.activeLink:focus,
+.activeLink:hover,
+.mainNavLink:hover {
+    color: var(--main-color);
+    font-size: 18px;
+}
+
+.btnActive {
+    background-color: var(--main-color);
+    color: white;
+    font-weight: 400;
+}
+
+.btnActive:hover,
+.btnActive:focus,
+.btnActive:active {
+    background-color: white;
+    color: var(--main-color);
+}
+
+.btnOutlinedActive {
+    background-color: white;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    font-weight: 400;
+}
+
+.btnOutlinedActive:hover,
+.btnOutlinedActive:focus,
+.btnOutlinedActive:active {
+    background-color: var(--main-color);
+    color: white;
+    font-weight: bold;
+}
+
+nav .navLink {
+    font-size: 18px;
+    font-family: "Tajawal", sans-serif !important;
+}
+
+/* Main header */
+.mainHeader {
+    padding: 20px;
+    font-family: "Tajawal", sans-serif !important;
+    margin-right: 135px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 991px) {
+    .mainHeader {
+        margin-right: 0px;
+    }
+}
+
+.headerParagraph {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Tajawal", sans-serif !important;
+    text-align: start;
+    line-height: 30px;
+}
+
+.headerText {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: "Cairo", sans-serif;
+    text-align: start;
+    line-height: 40px;
+}
+
+.ourParthers {
+    font-family: "Cairo", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+/* Our Services */
+.ourServices {
+    padding: 50px 0;
+
+    font-family: "Tajawal", sans-serif !important;
+    overflow: hidden;
+    background-image: url(/images/ServicesLogo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: auto;
+}
+
+.ourServicesText {
+    font-family: "Cairo", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: white;
+}
+
+.colService {
+    text-align: center !important;
+    height: 327px;
+    border-radius: 16px;
+    background-color: white;
+}
+
+.colService div {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    width: 71px;
+    height: 71px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgba(18, 160, 189, 0.2);
+}
+
+.colService div img {
+    height: 32px;
+    width: 32px;
+    left: 122.5px;
+    top: 51px;
+    border-radius: 0px;
+}
+
+.colService h3 {
+    font-family: "Cairo", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.colService p {
+    padding: 0 38px;
+    font-family: "Cairo", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+    color: #979797;
+}
+
+.colService:hover {
+    background-color: var(--main-color);
+    color: white !important;
+}
+
+.colService:hover.colService h3 {
+    color: white !important;
+}
+
+.colService:hover.colService p {
+    color: white !important;
+}
+
+.colService:hover.colService img {
+    color: white !important;
+}
+
+/* Our Partners */
+.ourPackages {
+    padding: 50px 0;
+    font-family: "Tajawal", sans-serif !important;
+    overflow: hidden;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: auto;
+    background:linear-gradient(0deg, rgb(255 255 255), rgb(255 255 255 / 44%)), url(/images/sa.png);;
+    /* background-image: url(/images/sa.png); */
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+
+.packagesText {
+    font-family: "Cairo", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    font-style: normal;
+    color: var(--main-color) !important;
+}
+
+.packagesTitleContainer {
+    background: rgba(18, 160, 189, 0.2);
+    border-radius: 16px;
+    border-radius: 16px;
+    padding: 20px 0;
+}
+
+.colPlckages {
+    background-color: white;
+    height: 594px;
+    padding: 12px !important;
+    border-radius: 16px;
+    border: 3px solid #12a0bd17;
+}
+
+.packagesTitle {
+    font-family: "Cairo", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    font-style: normal;
+    color: var(--main-color) !important;
+}
+
+.packagesList {
+    margin-top: 20px;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.packagesMember {
+    font-family: "Cairo", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: start;
+    color: var(--main-color);
+    margin-bottom: 10px;
+}
+
+
+
+.packagesFooter {
+    font-family: "Cairo", sans-serif;
+    font-style: bold;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 32px;
+    gap: 161px;
+    background: var(--main-color);
+    border-radius: 8px;
+}
+
+.packagesFooter {
+    font-family: "Cairo", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+
+
+.colPlckagesActive {
+    background-color: var(--main-color) !important;
+}
+
+.colPlckagesActive .packagesTitle,
+.colPlckagesActive .packagesFooter,
+.colPlckagesActive .packagesMember {
+    color: white !important;
+}
+
+.colPlckagesActive .packagesTitleContainer {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.colPlckagesActive .packagesFooter {
+    background-color: white;
+    color: var(--main-color) !important;
+}
+.packagesFooter{
+    cursor: pointer;
+    user-select: none;
+    display: block;
+    transition: 0.1s;
+}
+.packagesFooter span:last-child {
+    opacity: 0 !important;
+}
+.packagesFooter:hover{
+    background-color: white !important;
+    border: 2px solid var(--main-color) !important;
+    color: var(--main-color) !important;
+    display: flex;
+}
+.colPlckagesActive .packagesFooter:hover{
+    background-color: var(--main-color) !important;
+    border: 2px solid white !important;
+    color: white !important;
+}
+.packagesFooter:hover.packagesFooter span:last-child{
+    opacity:1 !important;
+}
+body{
+    background-color: #F9F9F9;
+}
