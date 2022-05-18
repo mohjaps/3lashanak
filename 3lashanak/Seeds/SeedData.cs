@@ -34,6 +34,23 @@ namespace _3lashanak.Seeds
                 _context.Packages.AddRange(lstPackages);
             }
 
+            ////////fill Partners
+            if (_context.Partners.Any())
+            {
+                List<Partners> lstPackages = new List<Partners>();
+                Partners partner1 = new Partners
+                {
+                    Image = "/Index/images/totalLogo.png"
+                };
+                Partners partner2 = new Partners
+                {
+                    Image = "/Index/images/hankookLogo.png"
+                };
+
+                lstPackages.Add(partner1);
+                lstPackages.Add(partner2);
+                _context.Partners.AddRange(lstPackages);
+            }
 
             ////////fill Services
             if (!_context.Services.Any())

@@ -27,10 +27,10 @@ namespace _3lashanak.Controllers
         public IActionResult Index()
         {
 
-            if (context.Users.Count() <=0)
-            {
-                userManager.CreateAsync(new IdentityUser(){UserName="admin", EmailConfirmed=true }, "admin");
-            }
+            //if (context.Users.Count() <=0)
+            //{
+            //    userManager.CreateAsync(new IdentityUser(){UserName="admin", EmailConfirmed=true }, "admin");
+            //}
 
 
             return View();
