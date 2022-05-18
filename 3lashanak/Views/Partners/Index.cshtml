@@ -1,0 +1,36 @@
+﻿@model IEnumerable<_3lashanak.Models.Partners>
+
+@{
+    ViewData["Title"] = "الشركاء";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="CreateAsync">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                الصورة
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) 
+{
+        <tr>
+            <td>
+                <img src="@item.Image" asp-append-version="true"/>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
