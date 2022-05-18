@@ -39,7 +39,7 @@ namespace _3lashanak
                 options.Password.RequireUppercase = false;
                 options.Password.RequireDigit = false;
 
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(5);
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.AllowedForNewUsers = true;
 

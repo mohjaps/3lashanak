@@ -1,8 +1,20 @@
 ﻿@using _3lashanak
+@using _3lashanak.Data
 @using _3lashanak.Models
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject ApplicationDbContext _context;
 @{
     Layout = null;
+    Settings WhoUs = _context.Settings.FirstOrDefault(x => x.Key == "من نحن");
+
+    Settings navBtn = _context.Settings.FirstOrDefault(x => x.Key == "زر الهيدر");
+    Settings heroBtn = _context.Settings.FirstOrDefault(x => x.Key == "زر الهيرو");
+
+    Settings header = _context.Settings.FirstOrDefault(x => x.Key == "الهيدر");
+    Settings headerDesc = _context.Settings.FirstOrDefault(x => x.Key == "الوصف");
+
+    List<Partners> partners = _context.Partners.ToList();
+    ;
 }
 
 <!DOCTYPE html>
@@ -51,9 +63,9 @@
                         </li>
                     </ul>
                     <form class="d-flex"  style="padding-left: 135px!important;"role="search">
-                        <button class="btn btnActive" type="submit">
-                            حمل التطبيق الآن
-                        </button>
+                        <a class="btn btnActive" href="@navBtn.Value" type="submit">
+                            @navBtn.Name
+                        </a>
                     </form>
                 </div>
             </div>
@@ -67,18 +79,19 @@
         <div class="row row-cols-1 row-cols-lg-2 mainHeader p-0">
             <div  class="col order-2 order-lg-1 h-100 d-flex align-self-center justify-content-center align-items-start flex-column text-center">
                 <h1>
-                    لا تشيل هم الطريق، خلِه <span class="color-primary">علينا</span>
+                    @header.Name<span class="color-primary">@header.Value</span>
                 </h1>
                 <p class="headerParagraph">
-                    تمتّع بخدمة أفضل الفنّيين لأعطال السيارات<br />
-                    في أي وقت وأي مكان في ارجاء المملكة !
+                    @headerDesc.Name<br />
+                    @headerDesc.Value
                 </p>
                 <div class="mt-5">
-                    <button class="btn btnActive"> <i class="bi bi-download"></i>حمل التطبيق الآن</button>
+                    <a href="@heroBtn.Value" class="btn btnActive"> <i class="bi bi-download"></i>@heroBtn.Name</a>
                     <span class="p-3 btn border-0">استكشف أكثر</span>
                 </div>
                 <div class="ourParthers my-3">شركائنا</div>
                 <div class="">
+
                     <img src="/Index/images/totalLogo.png" alt="" />
                     <img src="/Index/images/hankookLogo.png" alt="" />
                 </div>
@@ -230,16 +243,14 @@
             <p class="text-center" style="font-size: 2rem; margin-bottom: 40px!important;"> من نحن </p>
            
             <div class="col-12 col-md" style="font-size: 1.2rem; text-align: right;">
-                   <h3 style="margin-bottom: 32px!important;">الشركة الأولى لتقديم خدمات  الطريق 
-                    في الوطن العربي</h3>
+                   <h3 style="margin-bottom: 32px!important;">@WhoUs.Name</h3>
 
-                    <p style="line-height: 40px; color: #797979;">على الرغم من تمتع كل من المؤسسات الخمس المؤلفة لمجموعة البنك الدولي بهيكل عضوية خاص بها بالنسبة للبلدان الأعضاء، ومجالس الإدارة، واتفاقيات التأسيس الخاصة بكل منها، لكنها تعمل كوحدة واحدة لخدمة البلدان الشريكة معها. ومن غير الممكن مواجهة التحديات الإنمائية اليوم من دون أن يكون القطاع الخاص جزءاً من الحل. لكن القطاع العام هو من يرسي الأساس لتمكين استثمارات القطاع الخاص والسماح له بالنمو والازدهار. وتعطي الأدوار التكاملية لمؤسسات مجموعة البنك الدولي قدرة فريدة للمجموعة لربط الموارد المالية العالمية باحتياجات البلدان النامية. 
-                        يشكل البنك الدولي للإنشاء والتعمير والمؤسسة الدولية للتنمية معًا البنك الدولي وهما يقدمان التمويل والمشورة بشأن السياسات والمساعدة الفنية </p>
+                    <p style="line-height: 40px; color: #797979;">@WhoUs.Value</p>
             
             </div>
             <div class="col-12 col-md">
                 <div class="mainHeader">
-                   <img src="/Index/images/Cars.png"style="width:85%!important" />
+                   <img src="@WhoUs.Icon"style="width:85%!important" />
                 </div>
             </div>
         </div>
