@@ -2,7 +2,7 @@
 
 namespace _3lashanak.Models
 {
-    public class Services
+    public class Service
     {
         [Key]
         public long Id { get; set; }
