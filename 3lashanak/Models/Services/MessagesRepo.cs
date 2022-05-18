@@ -1,30 +1,38 @@
-﻿using System.Threading.Tasks;
+﻿using _3lashanak.Data;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace _3lashanak.Models.Services
 {
     public class MessagesRepo : IRepository<Messages>
     {
-        public async Task<Messages> Add(Messages model)
+        private readonly ApplicationDbContext context;
+
+        public MessagesRepo(ApplicationDbContext context)
+        {
+            this.context = context;
+        }
+        public bool Add(Messages model)
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<Messages> Delete(long Id)
+        public bool Delete(long Id)
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task GetAll()
+        public async Task<List<Messages>> GetAll()
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<Messages> GetOne()
+        public Task<Messages> GetOne()
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<Messages> Update(Messages model)
+        public bool Update(Messages model)
         {
             throw new System.NotImplementedException();
         }
