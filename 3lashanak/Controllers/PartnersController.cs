@@ -76,10 +76,10 @@ namespace _3lashanak.Controllers
                     return View();
                 if (file is not null)
                 {
-                    string path = Path.Combine(en.WebRootPath, "Images");
+                    string path = Path.Combine(en.WebRootPath, "images");
                     using (var Stream = new FileStream(path, FileMode.Create))
                         file.CopyTo(Stream);
-                    collection.Image = Path.Combine(en.WebRootPath, "Images", file.FileName + Guid.NewGuid());
+                    collection.Image = Path.Combine(en.WebRootPath, "images", file.FileName + Guid.NewGuid());
                 }
                 if (service.Update(collection))
                     return RedirectToAction(nameof(Index));
