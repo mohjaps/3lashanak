@@ -45,10 +45,10 @@ namespace _3lashanak.Controllers
 
                 if (file is not null)
                 {
-                    string path = Path.Combine(en.WebRootPath, "Images");
-                    using (var Stream = new FileStream(path, FileMode.Create))
+                    string path = Path.Combine("\\Index", "images", Guid.NewGuid().ToString() + file.FileName);
+                    using (var Stream = new FileStream(en.WebRootPath + path, FileMode.Create))
                         file.CopyTo(Stream);
-                    collection.Image = Path.Combine(en.WebRootPath, "Images", file.FileName + Guid.NewGuid());
+                    collection.Image = path;
                 }
 
                 if (service.Add(collection))
@@ -76,10 +76,10 @@ namespace _3lashanak.Controllers
                     return View();
                 if (file is not null)
                 {
-                    string path = Path.Combine(en.WebRootPath, "Images");
-                    using (var Stream = new FileStream(path, FileMode.Create))
+                    string path = Path.Combine("\\Index", "images", Guid.NewGuid().ToString() + file.FileName);
+                    using (var Stream = new FileStream(en.WebRootPath + path, FileMode.Create))
                         file.CopyTo(Stream);
-                    collection.Image = Path.Combine(en.WebRootPath, "Images", file.FileName + Guid.NewGuid());
+                    collection.Image = path;
                 }
                 if (service.Update(collection))
                     return RedirectToAction(nameof(Index));

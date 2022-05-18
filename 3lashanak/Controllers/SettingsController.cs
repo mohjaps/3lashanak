@@ -66,10 +66,13 @@ namespace _3lashanak.Controllers
             {
                 if (!ModelState.IsValid)
                     return View();
-                string path = Path.Combine(en.WebRootPath, "Images");
-                using (var Stream = new FileStream(path, FileMode.Create))
-                    file.CopyTo(Stream);
-                collection.Icon = Path.Combine(en.WebRootPath, "Images", file.FileName + Guid.NewGuid());
+                if (file is not null)
+                {
+                    string path = Path.Combine("\\Index", "images", Guid.NewGuid().ToString() + file.FileName);
+                    using (var Stream = new FileStream(en.WebRootPath + path, FileMode.Create))
+                        file.CopyTo(Stream);
+                    collection.Icon = path;
+                }
                 if (service.Update(collection))
                     return RedirectToAction(nameof(Index));
                 return View(collection);

@@ -12,7 +12,7 @@ namespace _3lashanak.Controllers
     public class SocialMediaController : Controller
     {
         private readonly IRepository<SocialMedia> service;
-        private readonly IWebHostEnvironment en;
+        private readonly IWebHostEnvironment  en;
 
         public SocialMediaController(IRepository<SocialMedia> service, IWebHostEnvironment en)
         {
@@ -36,7 +36,7 @@ namespace _3lashanak.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateAsync(SocialMedia collection, IFormFile file)
+        public async Task<ActionResult> Create(SocialMedia collection, IFormFile file)
         {
             try
             {
@@ -44,10 +44,10 @@ namespace _3lashanak.Controllers
                     return View();
                 if (file is not null)
                 {
-                    string path = Path.Combine(en.WebRootPath, "Images");
-                    using (var Stream = new FileStream(path, FileMode.Create))
+                    string path = Path.Combine("\\Index", "images",  Guid.NewGuid().ToString()+file.FileName );
+                    using (var Stream = new FileStream(en.WebRootPath+ path, FileMode.Create))
                         file.CopyTo(Stream);
-                    collection.Image = Path.Combine(en.WebRootPath, "Images", file.FileName + Guid.NewGuid());
+                    collection.Logo = path;
                 }
                 if (service.Add(collection))
                     return RedirectToAction(nameof(Index));
@@ -72,12 +72,12 @@ namespace _3lashanak.Controllers
             {
                 if (!ModelState.IsValid)
                     return View();
-                if(file is not null)
+                if (file is not null)
                 {
-                    string path = Path.Combine(en.WebRootPath, "Images");
-                    using (var Stream = new FileStream(path, FileMode.Create))
+                    string path = Path.Combine("\\Index", "images", Guid.NewGuid().ToString() + file.FileName);
+                    using (var Stream = new FileStream(en.WebRootPath + path, FileMode.Create))
                         file.CopyTo(Stream);
-                    collection.Image = Path.Combine(en.WebRootPath, "Images", file.FileName + Guid.NewGuid());
+                    collection.Logo = path;
                 }
                 if (service.Update(collection))
                     return RedirectToAction(nameof(Index));
