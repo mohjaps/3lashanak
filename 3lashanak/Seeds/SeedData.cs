@@ -51,6 +51,24 @@ namespace _3lashanak.Seeds
                 lstPackages.Add(partner2);
                 _context.Partners.AddRange(lstPackages);
             }
+            ////////fill SocialMedia
+            if (_context.SocialMedia.Any())
+            {
+                List<SocialMedia> lstPackages = new List<SocialMedia>();
+                SocialMedia partner1 = new SocialMedia
+                {
+                    Image = "/Index/images/totalLogo.png",
+                    
+                };
+                SocialMedia partner2 = new SocialMedia
+                {
+                    Image = "/Index/images/hankookLogo.png"
+                };
+
+                lstPackages.Add(partner1);
+                lstPackages.Add(partner2);
+                _context.Partners.AddRange(lstPackages);
+            }
 
             ////////fill Services
             if (!_context.Services.Any())
@@ -101,21 +119,13 @@ namespace _3lashanak.Seeds
             
 
             ////////fill Settings Footer
-            if(!_context.Settings.Any(x => x.Key == "TitleFooter1"&& x.Key == "TitleFooter2" && x.Key== "TitleFooter3"))
+            if(_context.Settings.FirstOrDefault(x => x.Key == "TitleFooter1" || x.Key == "TitleFooter2" || x.Key== "TitleFooter3") is null)
             {
                 List<Settings> lstSettingsFooter = new List<Settings>();
                 lstSettingsFooter.Add(new Settings
                 {
                     Key = "TitleFooter1",
                     Name = "العنوان الأول ",
-                    Type = TypeSettings.Text,
-                    Value = "حمل التطبيق الان"
-                });
-                lstSettingsFooter.Add(new Settings
-                {
-                    Key = "TitleFooter1",
-                    Name = "العنوان الأول ",
-                    Icon = "/Index//images/mobile.png",
                     Type = TypeSettings.Text,
                     Value = "حمل التطبيق الان"
                 });

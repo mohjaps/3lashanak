@@ -1,4 +1,6 @@
 using _3lashanak.Data;
+using _3lashanak.Models;
+using _3lashanak.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -48,6 +50,12 @@ namespace _3lashanak
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+            services.AddScoped<IRepository<Messages>, MessagesRepo>();
+            services.AddScoped<IRepository<Partners>, PartnersRepo>();
+            services.AddScoped<IRepository<Packages>, PackagesRepo>();
+            services.AddScoped<IRepository<Settings>, SettingsRepo>();
+            services.AddScoped<IRepository<SocialMedia>, SocialMediaRepo>();
+            services.AddScoped<IRepository<Service>, ServiceRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
