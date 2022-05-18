@@ -1,54 +1,53 @@
 ﻿using _3lashanak.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace _3lashanak.Models.Services
 {
-    public class MessagesRepo : IRepository<Messages>
+    public class PartnersRepo : IRepository<Partners>
     {
         private readonly ApplicationDbContext context;
 
-        public MessagesRepo(ApplicationDbContext context)
+        public PartnersRepo(ApplicationDbContext context)
         {
             this.context = context;
         }
-        public bool Add(Messages model)
+        public bool Add(Partners model)
         {
             if (model != null)
             {
-                context.Messages.Add(model);
+                context.Partners.Add(model);
                 context.SaveChanges();
                 return true;
             }
             return false;
         }
 
-        public bool Delete(Messages model)
+        public bool Delete(Partners model)
         {
-           if(model == null) return false;
-           context.Messages.Remove(model);
+            if (model == null) return false;
+            context.Partners.Remove(model);
             context.SaveChanges();
             return true;
         }
 
-        public async Task<List<Messages>> GetAll()
+        public async Task<List<Partners>> GetAll()
         {
-            return await context.Messages.ToListAsync();
+            return await context.Partners.ToListAsync();
         }
 
-        public async Task<Messages> GetOne(long Id)
+        public async Task<Partners> GetOne(long Id)
         {
-            
-            return await context.Messages.FirstOrDefaultAsync(x => x.Id == Id);
+
+            return await context.Partners.FirstOrDefaultAsync(x => x.Id == Id);
         }
 
-        public bool Update(Messages model)
+        public bool Update(Partners model)
         {
-            if(model != null)
+            if (model != null)
             {
-                context.Messages.Update(model);
+                context.Partners.Update(model);
                 context.SaveChanges();
                 return true;
             }

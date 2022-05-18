@@ -1,54 +1,53 @@
 ﻿using _3lashanak.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace _3lashanak.Models.Services
 {
-    public class MessagesRepo : IRepository<Messages>
+    public class SocialMediaRepo : IRepository<SocialMedia>
     {
         private readonly ApplicationDbContext context;
 
-        public MessagesRepo(ApplicationDbContext context)
+        public SocialMediaRepo(ApplicationDbContext context)
         {
             this.context = context;
         }
-        public bool Add(Messages model)
+        public bool Add(SocialMedia model)
         {
             if (model != null)
             {
-                context.Messages.Add(model);
+                context.SocialMedia.Add(model);
                 context.SaveChanges();
                 return true;
             }
             return false;
         }
 
-        public bool Delete(Messages model)
+        public bool Delete(SocialMedia model)
         {
-           if(model == null) return false;
-           context.Messages.Remove(model);
+            if (model == null) return false;
+            context.SocialMedia.Remove(model);
             context.SaveChanges();
             return true;
         }
 
-        public async Task<List<Messages>> GetAll()
+        public async Task<List<SocialMedia>> GetAll()
         {
-            return await context.Messages.ToListAsync();
+            return await context.SocialMedia.ToListAsync();
         }
 
-        public async Task<Messages> GetOne(long Id)
+        public async Task<SocialMedia> GetOne(long Id)
         {
-            
-            return await context.Messages.FirstOrDefaultAsync(x => x.Id == Id);
+
+            return await context.SocialMedia.FirstOrDefaultAsync(x => x.Id == Id);
         }
 
-        public bool Update(Messages model)
+        public bool Update(SocialMedia model)
         {
-            if(model != null)
+            if (model != null)
             {
-                context.Messages.Update(model);
+                context.SocialMedia.Update(model);
                 context.SaveChanges();
                 return true;
             }
