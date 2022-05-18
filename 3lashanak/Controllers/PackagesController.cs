@@ -38,7 +38,8 @@ namespace _3lashanak.Controllers
                 var items = await service.GetAll();
                 if (items.Count() > 4)
                     return View(collection);
-
+                if(items.Select(x => x.IsMajor).Count() >= 1)
+                    return View();
                 if (!ModelState.IsValid)
                     return View();
                 if (service.Add(collection))
@@ -58,11 +59,14 @@ namespace _3lashanak.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Packages collection)
+        public async Task<ActionResult> Edit(Packages collection)
         {
             try
             {
                 if (!ModelState.IsValid)
+                    return View();
+                var items = await service.GetAll();
+                if (items.Select(x => x.IsMajor).Count() >= 1)
                     return View();
                 if (service.Update(collection))
                     return RedirectToAction(nameof(Index));
