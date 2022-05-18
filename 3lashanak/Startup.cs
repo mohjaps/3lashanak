@@ -26,7 +26,7 @@ namespace _3lashanak
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(Configuration[""]));
+            services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefalutConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
