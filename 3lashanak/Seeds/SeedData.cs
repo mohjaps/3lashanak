@@ -103,7 +103,7 @@ namespace _3lashanak.Seeds
             
 
             ////////fill Settings Footer
-            if(!_context.Settings.Any(x => x.Key == "زر الهيدر" && x.Key == "زر الهيرو" && x.Key == "الهيدر"))
+            if(!_context.Settings.Any(x => x.Key == "زر الهيدر" && x.Key == "زر الهيرو" && x.Key == "الهيدر" && x.Key == "الوصف"))
             {
                 List<Settings> lstSettingsFooter = new List<Settings>();
                 lstSettingsFooter.Add(new Settings

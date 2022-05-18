@@ -14,6 +14,10 @@
     Settings headerDesc = _context.Settings.FirstOrDefault(x => x.Key == "الوصف");
 
     List<Partners> partners = _context.Partners.ToList();
+    List<Service> services = _context.Services.ToList();
+    List<Packages> packages = _context.Packages.ToList();
+
+
     ;
 }
 
@@ -91,9 +95,10 @@
                 </div>
                 <div class="ourParthers my-3">شركائنا</div>
                 <div class="">
-
-                    <img src="/Index/images/totalLogo.png" alt="" />
-                    <img src="/Index/images/hankookLogo.png" alt="" />
+                    @foreach(Partners part in partners)
+                    {
+                        <img src="@part" alt="" />
+                    }
                 </div>
                 <div style="height: 200px;"></div>
             </div>
@@ -107,42 +112,18 @@
         <p class="ourServicesText my-5">خدماتنا</p>
         <div class="container">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 gap-3 gap-lg-0">
-                <div class="col-auto">
-                    <div class="p-1 colService d-flex flex-column">
-                        <div class="mx-auto">
-                            <img src="/Index/images/service1.svg" alt="" />
+                @foreach(Service serv in services)
+                {
+                    <div class="col-auto">
+                        <div class="p-1 colService d-flex flex-column">
+                            <div class="mx-auto">
+                                <img src="@serv.Icon" alt="" />
+                            </div>
+                            <h3 class="ourParthers">@serv.Title</h3>
+                            <p>@serv.Description</p>
                         </div>
-                        <h3 class="ourParthers">تغيير الاطارات</h3>
-                        <p>وصف عن الخدمة والتفاصيل التي تقدمها تحديداً بشكل موجز</p>
                     </div>
-                </div>
-                <div class="col-auto">
-                    <div class="p-1 colService d-flex flex-column">
-                        <div class="mx-auto">
-                            <img src="/Index/images/services2.svg" alt="" />
-                        </div>
-                        <h3 class="ourParthers">تغيير الاطارات</h3>
-                        <p>وصف عن الخدمة والتفاصيل التي تقدمها تحديداً بشكل موجز</p>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="p-1 colService d-flex flex-column">
-                        <div class="mx-auto">
-                            <img src="/Index/images/service3.svg" alt="" />
-                        </div>
-                        <h3 class="ourParthers">تغيير الاطارات</h3>
-                        <p>وصف عن الخدمة والتفاصيل التي تقدمها تحديداً بشكل موجز</p>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="p-1 colService d-flex flex-column">
-                        <div class="mx-auto">
-                            <img src="/Index/images/service4.svg" alt="" />
-                        </div>
-                        <h3 class="ourParthers">تغيير الاطارات</h3>
-                        <p>وصف عن الخدمة والتفاصيل التي تقدمها تحديداً بشكل موجز</p>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </section>
@@ -152,87 +133,66 @@
         <p class="packagesText my-5">باقاتنا</p>
         <div class="container">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-                <div class="col-auto mx-auto">
-                    <div class="p-1 colPlckages d-flex flex-column justify-content-between">
-                        <div>
-                            <div class="packagesTitleContainer">
-                                <h3 class="packagesTitle">الباقة الربع سنوية</h3>
+                @foreach(Packages pack in packages.Where(x => !x.IsMajor))
+                {
+                    <div class="col-auto mx-auto">
+                        <div class="p-1 colPlckages d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="packagesTitleContainer">
+                                    <h3 class="packagesTitle">@pack.Title</h3>
+                                </div>
+                                <ul class="packagesList">
+                                    <li class="packagesMember">
+                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                    </li>
+                                    <li class="packagesMember">
+                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                    </li>
+                                    <li class="packagesMember">
+                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                    </li>
+                                    <li class="packagesMember">
+                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                    </li>
+                                </ul>
                             </div>
-                            <ul class="packagesList">
-                                <li class="packagesMember">
-                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
-                                </li>
-                                <li class="packagesMember">
-                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
-                                </li>
-                                <li class="packagesMember">
-                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
-                                </li>
-                                <li class="packagesMember">
-                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="packagesFooter">
-                            <span class="d-inline-block">ابدا الآن</span>
-                            <span class="d-inline-block">200 ريال</span>
+                            <div class="packagesFooter">
+                                <span class="d-inline-block">ابدا الآن</span>
+                                <span class="d-inline-block">200 ريال</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-auto mx-auto">
-                    <div class="p-1 colPlckages d-flex flex-column justify-content-between">
-                        <div>
-                            <div class="packagesTitleContainer">
-                                <h3 class="packagesTitle">الباقة الربع سنوية</h3>
+                }
+                @foreach(Packages pack in packages.Where(x => x.IsMajor))
+                {
+                    <div class="col-auto mx-auto">
+                        <div class="p-1 colPlckages colPlckagesActive d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="packagesTitleContainer">
+                                    <h3 class="packagesTitle">@pack.Title</h3>
+                                </div>
+                                <ul class="packagesList">
+                                    <li class="packagesMember">
+                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                    </li>
+                                    <li class="packagesMember">
+                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                    </li>
+                                    <li class="packagesMember">
+                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                    </li>
+                                    <li class="packagesMember">
+                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                    </li>
+                                </ul>
                             </div>
-                            <ul class="packagesList">
-                                <li class="packagesMember">
-                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
-                                </li>
-                                <li class="packagesMember">
-                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
-                                </li>
-                                <li class="packagesMember">
-                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
-                                </li>
-                                <li class="packagesMember">
-                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="packagesFooter">
-                            <span class="d-inline-block">ابدا الآن</span>
-                            <span class="d-inline-block">200 ريال</span>
+                            <div class="packagesFooter">
+                                <span class="d-inline-block">ابدا الآن</span>
+                                <span class="d-inline-block">200 ريال</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-auto mx-auto">
-                    <div class="p-1 colPlckages colPlckagesActive d-flex flex-column justify-content-between">
-                        <div>
-                            <div class="packagesTitleContainer">
-                                <h3 class="packagesTitle">الباقة الربع سنوية</h3>
-                            </div>
-                            <ul class="packagesList">
-                                <li class="packagesMember">
-                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
-                                </li>
-                                <li class="packagesMember">
-                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
-                                </li>
-                                <li class="packagesMember">
-                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
-                                </li>
-                                <li class="packagesMember">
-                                    <img src="/Index/images/Oval.svg" /> الخدمة الأولى
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="packagesFooter">
-                            <span class="d-inline-block">ابدا الآن</span>
-                            <span class="d-inline-block">200 ريال</span>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </section>
