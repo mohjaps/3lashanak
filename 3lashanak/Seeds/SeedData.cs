@@ -51,24 +51,8 @@ namespace _3lashanak.Seeds
                 lstPackages.Add(partner2);
                 _context.Partners.AddRange(lstPackages);
             }
-            ////////fill SocialMedia
-            if (_context.SocialMedia.Any())
-            {
-                List<SocialMedia> lstPackages = new List<SocialMedia>();
-                SocialMedia partner1 = new SocialMedia
-                {
-                    Image = "/Index/images/totalLogo.png",
-                    
-                };
-                SocialMedia partner2 = new SocialMedia
-                {
-                    Image = "/Index/images/hankookLogo.png"
-                };
-
-                lstPackages.Add(partner1);
-                lstPackages.Add(partner2);
-                _context.Partners.AddRange(lstPackages);
-            }
+         
+          
 
             ////////fill Services
             if (!_context.Services.Any())
@@ -119,7 +103,7 @@ namespace _3lashanak.Seeds
             
 
             ////////fill Settings Footer
-            if(!_context.Settings.Any(x => x.Key == "زر الهيدر" && x.Key == "زر الهيرو" && x.Key == "الهيدر") && x.Key == "الوصف")
+            if(!_context.Settings.Any(x => x.Key == "زر الهيدر" && x.Key == "زر الهيرو" && x.Key == "الهيدر"))
             {
                 List<Settings> lstSettingsFooter = new List<Settings>();
                 lstSettingsFooter.Add(new Settings
