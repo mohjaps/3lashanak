@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace _3lashanak.Controllers
 {
-    public class SettingsControllers : Controller
+    public class SettingsController : Controller
     {
         private readonly IRepository<Settings> service;
         private readonly IWebHostEnvironment en;
 
-        public SettingsControllers(IRepository<Settings> service, IWebHostEnvironment en)
+        public SettingsController(IRepository<Settings> service, IWebHostEnvironment en)
         {
             this.service = service;
             this.en = en;
