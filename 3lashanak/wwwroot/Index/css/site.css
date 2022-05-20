@@ -303,7 +303,8 @@ nav .navLink {
     background-position: center;
     background-size: cover;
     height: auto;
-    background:linear-gradient(0deg, rgb(255 255 255), rgb(255 255 255 / 44%)), url(/images/sa.png);;
+    background: linear-gradient(0deg, rgb(255 255 255), rgb(255 255 255 / 44%)), url(/images/sa.png);
+    ;
     /* background-image: url(/images/sa.png); */
     background-repeat: no-repeat;
     background-position: right;
@@ -319,22 +320,47 @@ nav .navLink {
     border-radius: 8px;
 }*/
 
-    .packagesText {
-        font-family: "Cairo", sans-serif;
-        font-size: 32px;
-        font-weight: 400;
-        line-height: 20px;
-        letter-spacing: 0em;
-        text-align: center;
-        font-style: normal;
-        color: var(--main-color) !important;
-    }
+.packageType {
+    font-family: "Cairo", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: right;
+    color: #979797;
+}
+
+.packagePrice {
+    font-family: "Cairo", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 45px;
+    color: var(--main-color);
+}
+
+.packageDescription {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: right;
+    color: var(--main-color);
+}
+
+.packageAnn {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: right;
+    color: var(--main-color);
+}
 
 .packagesTitleContainer {
-    background: rgba(18, 160, 189, 0.2);
-    border-radius: 16px;
-    border-radius: 16px;
-    padding: 20px 0;
+    padding: 25px;
 }
 
 .colPlckages {
@@ -407,42 +433,46 @@ nav .navLink {
     background-color: var(--main-color) !important;
 }
 
-.colPlckagesActive .packagesTitle,
-.colPlckagesActive .packagesFooter,
-.colPlckagesActive .packagesMember {
-    color: white !important;
-}
+    .colPlckagesActive .packagesTitle,
+    .colPlckagesActive .packagesFooter,
+    .colPlckagesActive .packagesMember {
+        color: white !important;
+    }
 
-.colPlckagesActive .packagesTitleContainer {
-    background: rgba(255, 255, 255, 0.2);
-}
+    .colPlckagesActive .packagesTitleContainer {
+        background: rgba(255, 255, 255, 0.2);
+    }
 
-.colPlckagesActive .packagesFooter {
-    background-color: white;
-    color: var(--main-color) !important;
-}
-.packagesFooter{
+    .colPlckagesActive .packagesFooter {
+        background-color: white;
+        color: var(--main-color) !important;
+    }
+
+.packagesFooter {
     cursor: pointer;
     user-select: none;
     display: block;
     transition: 0.1s;
 }
-.packagesFooter span:last-child {
-    opacity: 0 !important;
+
+
+.colPackagesPrimary {
+    background-color: var(--main-color);
+    color: white !important;
+    transform: scaleY(1.05);
 }
-.packagesFooter:hover{
-    background-color: white !important;
-    border: 2px solid var(--main-color) !important;
-    color: var(--main-color) !important;
-    display: flex;
-}
-.colPlckagesActive .packagesFooter:hover{
-    background-color: var(--main-color) !important;
-    border: 2px solid white !important;
+
+.colPackagesPrimary .packageType,
+.colPackagesPrimary .packagePrice,
+.colPackagesPrimary .packageDescription,
+.colPackagesPrimary .packageAnn,
+.colPackagesPrimary .packagesMember {
     color: white !important;
 }
-.packagesFooter:hover.packagesFooter span:last-child{
-    opacity:1 !important;
+
+.colPackagesPrimary .packagesFooter {
+    background-color: white;
+    color: var(--main-color) !important;
 }
 body{
     background-color: #F9F9F9;
