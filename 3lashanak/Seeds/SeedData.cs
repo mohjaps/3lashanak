@@ -25,14 +25,14 @@ namespace _3lashanak.Seeds
                     Title = "الباقة الربع سنوية",
                     Description = "الخدمة الأولى",
                     Price = 200,
-                    IsMajor = true,
+                    IsMajor = false,
                 };
                 Packages package2 = new Packages
                 {
                     Title = "الباقة الربع سنوية",
                     Description = "الخدمة الثانية",
                     Price = 200,
-                    IsMajor = true,
+                    IsMajor = false,
                 };
                 Packages package3 = new Packages
                 {
