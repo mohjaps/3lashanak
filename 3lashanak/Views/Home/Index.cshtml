@@ -33,7 +33,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.2/bootstrap-icons.svg" />
-    <link href="/Index/css/site.css" rel="stylesheet"/>
+    <link href="/Index/css/site.css" rel="stylesheet" asp-append-version="true"/>
 </head>
 
 <body>
@@ -74,7 +74,7 @@
             </div>
         </nav>
     </div>
-    <div style="height:150px">
+    @*<div style="height:150px">*@
 
     </div>
     <!-- Main Content -->
@@ -110,7 +110,7 @@
     <section id="Services" class="ourServices container-fluid">
         <p class="ourServicesText my-5">خدماتنا</p>
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 gap-3 gap-lg-0">
+            <div class="row row-cols-1 row-cols-md-2 justify-content-center row-cols-lg-4 gap-3 gap-lg-0">
                 @foreach(Service serv in services)
                 {
                     <div class="col-auto">
@@ -131,33 +131,41 @@
     <section id="Packages" class="ourPackages container-fluid">
         <p class="packagesText my-5">باقاتنا</p>
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+            <div class="row row-cols-1 row-cols-md-1 justify-content-center row-cols-lg-3">
                 @foreach(Packages pack in packages.Where(x => !x.IsMajor))
                 {
                     <div class="col-auto mx-auto">
                         <div class="p-1 colPlckages d-flex flex-column justify-content-between">
                             <div>
                                 <div class="packagesTitleContainer">
-                                    <h3 class="packagesTitle">@pack.Title</h3>
+                                    <h3 class="packageType">الباقة الربع سنوية</h3>
+                                    <div>
+                                        <h1 class="packagePrice">300 ريال سعودي <sup class="packageAnn">سنويا</sup></h1>
+
+                                        <p class="packageDescription">
+                                            تمتع بكل تفاصيل الباقة لمدة عام كامل من أي
+                                            شريك موجود في التطبيق
+                                        </p>
+                                    </div>
                                 </div>
+                                <hr>
                                 <ul class="packagesList">
                                     <li class="packagesMember">
-                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                        <img src="images/Oval.svg" /> الخدمة الأولى
                                     </li>
                                     <li class="packagesMember">
-                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                        <img src="images/Oval.svg" /> الخدمة الأولى
                                     </li>
                                     <li class="packagesMember">
-                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                        <img src="images/Oval.svg" /> الخدمة الأولى
                                     </li>
                                     <li class="packagesMember">
-                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                        <img src="images/Oval.svg" /> الخدمة الأولى
                                     </li>
                                 </ul>
                             </div>
                             <div class="packagesFooter">
                                 <span class="d-inline-block">ابدا الآن</span>
-                                <span class="d-inline-block">200 ريال</span>
                             </div>
                         </div>
                     </div>
@@ -165,29 +173,37 @@
                 @foreach(Packages pack in packages.Where(x => x.IsMajor))
                 {
                     <div class="col-auto mx-auto">
-                        <div class="p-1 colPlckages colPlckagesActive d-flex flex-column justify-content-between">
+                        <div class="p-1 colPlckages colPackagesPrimary d-flex flex-column justify-content-between">
                             <div>
                                 <div class="packagesTitleContainer">
-                                    <h3 class="packagesTitle">@pack.Title</h3>
+                                    <h3 class="packageType">الباقة الربع سنوية</h3>
+                                    <div>
+                                        <h1 class="packagePrice">300 ريال سعودي <sup class="packageAnn">سنويا</sup></h1>
+
+                                        <p class="packageDescription">
+                                            تمتع بكل تفاصيل الباقة لمدة عام كامل من أي
+                                            شريك موجود في التطبيق
+                                        </p>
+                                    </div>
                                 </div>
+                                <hr>
                                 <ul class="packagesList">
                                     <li class="packagesMember">
-                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                        <img src="images/Oval.svg" /> الخدمة الأولى
                                     </li>
                                     <li class="packagesMember">
-                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                        <img src="images/Oval.svg" /> الخدمة الأولى
                                     </li>
                                     <li class="packagesMember">
-                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                        <img src="images/Oval.svg" /> الخدمة الأولى
                                     </li>
                                     <li class="packagesMember">
-                                        <img src="/Index/images/Oval.svg" /> الخدمة الأولى
+                                        <img src="images/Oval.svg" /> الخدمة الأولى
                                     </li>
                                 </ul>
                             </div>
                             <div class="packagesFooter">
                                 <span class="d-inline-block">ابدا الآن</span>
-                                <span class="d-inline-block">200 ريال</span>
                             </div>
                         </div>
                     </div>
