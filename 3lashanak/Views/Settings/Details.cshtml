@@ -38,7 +38,8 @@
                 اللوقو
             </dt>
             <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Icon)
+                <img src="@Model.Icon" asp-append-version="true" />
+               @* @Html.DisplayFor(model => model.Icon)*@
             </dd>
         }
     </dl>

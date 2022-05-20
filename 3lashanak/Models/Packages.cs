@@ -11,6 +11,8 @@ namespace _3lashanak.Models
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }
+       
+
         [Required]
         public Double Price { get; set; }
         public Boolean IsMajor { get; set; }

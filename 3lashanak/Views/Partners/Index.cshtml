@@ -9,13 +9,15 @@
 <p>
     <a asp-action="CreateAsync">Create New</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table"style="direction:rtl!important;">
+    <thead style="width:300px!important">
         <tr>
             <th>
                 الصورة
             </th>
-            <th></th>
+            <th>التعديل</th>
+            <th>التفاصيل</th>
+            <th>الحذف</th>
         </tr>
     </thead>
     <tbody>
@@ -23,13 +25,19 @@
 {
         <tr>
             <td>
-                <img src="@item.Image" asp-append-version="true"/>
+                <img src="@item.Image" class="w-50 h-50" asp-append-version="true"/>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+               
+            </td>
+               <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            </td>
+              <td>
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
+            
         </tr>
 }
     </tbody>

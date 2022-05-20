@@ -20,17 +20,31 @@ namespace _3lashanak.Seeds
             ////////fill Packages
             if (!_context.Packages.Any())
             {
-                Packages packages = new Packages
+                Packages package1 = new Packages
                 {
                     Title = "الباقة الربع سنوية",
                     Description = "الخدمة الأولى",
                     Price = 200,
                     IsMajor = true,
                 };
+                Packages package2 = new Packages
+                {
+                    Title = "الباقة الربع سنوية",
+                    Description = "الخدمة الثانية",
+                    Price = 200,
+                    IsMajor = true,
+                };
+                Packages package3 = new Packages
+                {
+                    Title = "الباقة الربع سنوية",
+                    Description = "الخدمة الثالثة",
+                    Price = 200,
+                    IsMajor = true,
+                };
                 List<Packages> lstPackages = new List<Packages>();
-                lstPackages.Add(packages);
-                lstPackages.Add(packages);
-                lstPackages.Add(packages);
+                lstPackages.Add(package1);
+                lstPackages.Add(package2);
+                lstPackages.Add(package3);
                 _context.Packages.AddRange(lstPackages);
             }
 
@@ -138,8 +152,36 @@ namespace _3lashanak.Seeds
                 });
                 _context.Settings.AddRange(lstSettingsFooter);
             }
-           
 
+            if (!_context.SocialMedia.Any())
+            {
+                SocialMedia social1 = new SocialMedia
+                {
+                    Logo = "/Index/images/linkedIn.png",
+                    Title = ""
+                };
+                SocialMedia social2 = new SocialMedia
+                {
+                    Logo = "/Index/images/twitter.png",
+                    Title = ""
+                };
+                SocialMedia social3 = new SocialMedia
+                {
+                    Logo = "/Index/images/Instegram.png",
+                    Title = ""
+                };
+                SocialMedia social4 = new SocialMedia
+                {
+                    Logo = "/Index/images/facebook.png",
+                    Title = ""
+                };
+                List<SocialMedia> lstSocialMedia = new List<SocialMedia>();
+                lstSocialMedia.Add(social1);
+                lstSocialMedia.Add(social2);
+                lstSocialMedia.Add(social3);
+                lstSocialMedia.Add(social4);
+                _context.SocialMedia.AddRange(lstSocialMedia);
+            }
 
             _context.SaveChanges();
         }

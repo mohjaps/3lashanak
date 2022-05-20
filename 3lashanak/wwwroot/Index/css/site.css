@@ -309,17 +309,26 @@ nav .navLink {
     background-position: right;
     background-size: contain;
 }
+/*.ourPackages:hover {
+    position: absolute;
+    width: 380.64px;
+    height: 536px;
+    left: 394.64px;
+    top: 0px;
+    background: #119FBF;
+    border-radius: 8px;
+}*/
 
-.packagesText {
-    font-family: "Cairo", sans-serif;
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 0em;
-    text-align: center;
-    font-style: normal;
-    color: var(--main-color) !important;
-}
+    .packagesText {
+        font-family: "Cairo", sans-serif;
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0em;
+        text-align: center;
+        font-style: normal;
+        color: var(--main-color) !important;
+    }
 
 .packagesTitleContainer {
     background: rgba(18, 160, 189, 0.2);
