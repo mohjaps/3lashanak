@@ -17,5 +17,6 @@ namespace _3lashanak.Data
         public DbSet<Service> Services { get; set; }
         public DbSet<Settings> Settings { get; set; }
         public DbSet<SocialMedia> SocialMedia { get; set; }
+        public DbSet<ServicePackeges> ServicePackeges { get; set; }
     }
 }

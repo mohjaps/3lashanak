@@ -18,6 +18,7 @@
     List<Service> services = _context.Services.ToList();
     List<Packages> packages = _context.Packages.ToList();
     List<SocialMedia> socialmedia = _context.SocialMedia.ToList();
+    List<ServicePackeges> servicePackeges = _context.ServicePackeges.ToList();
 }
 
 <!DOCTYPE html>
@@ -140,28 +141,18 @@
                                 <div class="packagesTitleContainer">
                                     <h3 class="packageType">الباقة الربع سنوية</h3>
                                     <div>
-                                        <h1 class="packagePrice">300 ريال سعودي <sup class="packageAnn">سنويا</sup></h1>
+                                        <h1 class="packagePrice">@pack.Price ريال سعودي <sup class="packageAnn">سنويا</sup></h1>
 
                                         <p class="packageDescription">
-                                            تمتع بكل تفاصيل الباقة لمدة عام كامل من أي
-                                            شريك موجود في التطبيق
+                                           @pack.Description
                                         </p>
                                     </div>
                                 </div>
                                 <hr>
                                 <ul class="packagesList">
-                                    <li class="packagesMember">
-                                        <img src="images/Oval.svg" /> الخدمة الأولى
-                                    </li>
-                                    <li class="packagesMember">
-                                        <img src="images/Oval.svg" /> الخدمة الأولى
-                                    </li>
-                                    <li class="packagesMember">
-                                        <img src="images/Oval.svg" /> الخدمة الأولى
-                                    </li>
-                                    <li class="packagesMember">
-                                        <img src="images/Oval.svg" /> الخدمة الأولى
-                                    </li>
+                                  
+                                    
+
                                 </ul>
                             </div>
                             <div class="packagesFooter">
@@ -178,28 +169,27 @@
                                 <div class="packagesTitleContainer">
                                     <h3 class="packageType">الباقة الربع سنوية</h3>
                                     <div>
-                                        <h1 class="packagePrice">300 ريال سعودي <sup class="packageAnn">سنويا</sup></h1>
+                                        <h1 class="packagePrice">@pack.Price ريال سعودي <sup class="packageAnn">سنويا</sup></h1>
 
                                         <p class="packageDescription">
-                                            تمتع بكل تفاصيل الباقة لمدة عام كامل من أي
-                                            شريك موجود في التطبيق
+                                        @pack.Description
                                         </p>
                                     </div>
                                 </div>
                                 <hr>
                                 <ul class="packagesList">
-                                    <li class="packagesMember">
-                                        <img src="images/Oval.svg" /> الخدمة الأولى
-                                    </li>
-                                    <li class="packagesMember">
-                                        <img src="images/Oval.svg" /> الخدمة الأولى
-                                    </li>
-                                    <li class="packagesMember">
-                                        <img src="images/Oval.svg" /> الخدمة الأولى
-                                    </li>
-                                    <li class="packagesMember">
-                                        <img src="images/Oval.svg" /> الخدمة الأولى
-                                    </li>
+                                      @foreach (var item in servicePackeges)
+                                   {
+                                        if(item.PackageId == pack.Id)
+                                        {
+                                             <li class="packagesMember">
+                                               <img src="/Index/images/Oval.svg" /> @item.Service
+                                            </li>
+                                        }
+                                       
+                                   }
+                                  
+                                   
                                 </ul>
                             </div>
                             <div class="packagesFooter">
