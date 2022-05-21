@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
+
 namespace _3lashanak.Controllers
 {
     
@@ -24,9 +26,9 @@ namespace _3lashanak.Controllers
         {
             return View();
         }
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewBag.PackageId = new SelectList((System.Collections.IEnumerable)_packege.GetAll(),"Id", "Service") ;
+            ViewBag.PackageId = new SelectList(await _packege.GetAll(),"Id", "Service");
             return View();
         }
         [HttpPost]
@@ -40,9 +42,9 @@ namespace _3lashanak.Controllers
             return View();
         }
 
-        public IActionResult Edit()
+        public async Task<IActionResult> Edit()
         {
-            ViewBag.PackageId = new SelectList((System.Collections.IEnumerable)_packege.GetAll(), "Id", "Service");
+            ViewBag.PackageId = new  SelectList(await _packege.GetAll(), "Id", "Service");
             return View();
         }
         [HttpPost]
