@@ -39,7 +39,7 @@
 
 <body>
     <!-- Navigation Bar -->
-    <div class="container-fluid px-0" style="position: fixed;">
+    <div class="container-fluid px-0" style="">
         <nav class="navbar navbar-expand-lg bg-white ">
             <div class="container-fluid">
                 <a class="navbar-brand " style="padding-right: 135px;"  href="#"><img src="/Index/images/logo 1.png" /></a>
@@ -75,7 +75,7 @@
             </div>
         </nav>
     </div>
-    @*<div style="height:150px">*@
+    <div style="height:150px">
 
     </div>
     <!-- Main Content -->
@@ -97,7 +97,7 @@
                 <div class="">
                     @foreach(Partners part in partners)
                     {
-                        <img src="@part" alt="" />
+                        <img src="@part.Image" alt="" />
                     }
                 </div>
                 <div style="height: 200px;"></div>
@@ -133,7 +133,34 @@
         <p class="packagesText my-5">باقاتنا</p>
         <div class="container">
             <div class="row row-cols-1 row-cols-md-1 justify-content-center row-cols-lg-3">
-             
+                @foreach(Packages pack in packages.Where(x => !x.IsMajor).Take(1))
+                {
+                    <div class="col-auto mx-auto">
+                        <div class="p-1 colPlckages d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="packagesTitleContainer">
+                                    <h3 class="packageType">الباقة الربع سنوية</h3>
+                                    <div>
+                                        <h1 class="packagePrice">@pack.Price ريال سعودي <sup class="packageAnn">سنويا</sup></h1>
+
+                                        <p class="packageDescription">
+                                           @pack.Description
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <ul class="packagesList">
+                                  
+                                    
+
+                                </ul>
+                            </div>
+                            <div class="packagesFooter">
+                                <span class="d-inline-block">ابدا الآن</span>
+                            </div>
+                        </div>
+                    </div>
+                }
                 @foreach(Packages pack in packages.Where(x => x.IsMajor))
                 {
                     <div class="col-auto mx-auto">
@@ -170,6 +197,37 @@
                             </div>
                         </div>
                     </div>
+                }
+                @if(packages.Count> 1)
+                {
+                    foreach(Packages pack in packages.Where(x => !x.IsMajor).TakeLast(1))
+                    {
+                        <div class="col-auto mx-auto">
+                            <div class="p-1 colPlckages d-flex flex-column justify-content-between">
+                                <div>
+                                    <div class="packagesTitleContainer">
+                                        <h3 class="packageType">الباقة الربع سنوية</h3>
+                                        <div>
+                                            <h1 class="packagePrice">@pack.Price ريال سعودي <sup class="packageAnn">سنويا</sup></h1>
+
+                                            <p class="packageDescription">
+                                               @pack.Description
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <ul class="packagesList">
+                                  
+                                    
+
+                                    </ul>
+                                </div>
+                                <div class="packagesFooter">
+                                    <span class="d-inline-block">ابدا الآن</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 }
             </div>
         </div>
@@ -257,7 +315,7 @@
         <div class="container-fluid TextFooter text-white"  dir="rtl" style="background-image: linear-gradient(0deg,#12A0BD,#a6d7e0);">
             
                 <div class="row">
-                    <div class="col" style="margin-top: 126px; margin-right: 135px;">
+                    <div class="col">
                         <h3>حمل التطبيق الان</h3>
                         <p><i class="bi bi-star"></i>تمتع بخدمات الطريق أينما كنت</p>
                         <p>سعر واحد طيلة العام</p>

@@ -212,7 +212,7 @@ nav .navLink {
 
     font-family: "Tajawal", sans-serif !important;
     overflow: hidden;
-    background-image: url(/images/ServicesLogo.png);
+    background-image: url(/index/images/ServicesLogo.png) !important;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -226,7 +226,7 @@ nav .navLink {
     line-height: 20px;
     letter-spacing: 0em;
     text-align: center;
-    color: white;
+    color: white !important;
 }
 
 .colService {
@@ -460,7 +460,7 @@ nav .navLink {
 .colPackagesPrimary {
     background-color: var(--main-color);
     color: white !important;
-    transform: scaleY(1.05);
+    /*transform: scaleY(1.05);*/
 }
 
 .colPackagesPrimary .packageType,
