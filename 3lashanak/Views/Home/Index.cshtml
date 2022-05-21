@@ -133,38 +133,11 @@
         <p class="packagesText my-5">باقاتنا</p>
         <div class="container">
             <div class="row row-cols-1 row-cols-md-1 justify-content-center row-cols-lg-3">
-                @foreach(Packages pack in packages.Where(x => !x.IsMajor))
-                {
-                    <div class="col-auto mx-auto">
-                        <div class="p-1 colPlckages d-flex flex-column justify-content-between">
-                            <div>
-                                <div class="packagesTitleContainer">
-                                    <h3 class="packageType">الباقة الربع سنوية</h3>
-                                    <div>
-                                        <h1 class="packagePrice">@pack.Price ريال سعودي <sup class="packageAnn">سنويا</sup></h1>
-
-                                        <p class="packageDescription">
-                                           @pack.Description
-                                        </p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <ul class="packagesList">
-                                  
-                                    
-
-                                </ul>
-                            </div>
-                            <div class="packagesFooter">
-                                <span class="d-inline-block">ابدا الآن</span>
-                            </div>
-                        </div>
-                    </div>
-                }
+             
                 @foreach(Packages pack in packages.Where(x => x.IsMajor))
                 {
                     <div class="col-auto mx-auto">
-                        <div class="p-1 colPlckages colPackagesPrimary d-flex flex-column justify-content-between">
+                        <div class="p-1 colPlckages  d-flex flex-column justify-content-between">
                             <div>
                                 <div class="packagesTitleContainer">
                                     <h3 class="packageType">الباقة الربع سنوية</h3>
@@ -305,14 +278,14 @@
                             <img src="@sm.Logo" class="m-1" />
                         }
                     </div>
-                    <div class="col-2" >
+                    <div class="col-12 col-md-2" >
                             <h5>الصفحات</h5>
                             <p>خدماتنا</p>
                             <p>الباقات</p>
                             <p>من نحن</p>
                             <p>تواصل معنا </p>
                     </div>
-                    <div class="col" >
+                    <div class="col-12 col-md" >
                         <h5>النشرة البريدية</h5>
                         <div class="d-flex">
                             <input  placeholder="الإيميل" class="inputEmail"/>
