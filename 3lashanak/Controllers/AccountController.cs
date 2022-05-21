@@ -39,7 +39,7 @@ namespace _3lashanak.Controllers
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(user, model.Password, false, false);
                     if (result.Succeeded)
                     {
-                        return Redirect(returnUrl ?? "/home/index");
+                        return Redirect(returnUrl ?? "/servicePackeges");
                     }
                     else
                     {

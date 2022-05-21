@@ -50,6 +50,19 @@ namespace _3lashanak
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = false;
+                options.ExpireTimeSpan = TimeSpan.FromDays(3000);
+
+                options.LoginPath = "/Account/Login";
+                options.AccessDeniedPath = "/Account/Login";
+                options.SlidingExpiration = true;
+
+            });
+
             services.AddScoped<IRepository<Messages>, MessagesRepo>();
             services.AddScoped<IRepository<Partners>, PartnersRepo>();
             services.AddScoped<IRepository<Packages>, PackagesRepo>();
@@ -77,7 +90,10 @@ namespace _3lashanak
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+
+
             Seeds.SeedData.Seed(context);
             app.UseEndpoints(endpoints =>
             {
