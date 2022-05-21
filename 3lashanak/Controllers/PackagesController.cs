@@ -3,9 +3,11 @@ using _3lashanak.Models.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace _3lashanak.Controllers
 {
+    [Authorize]
     public class PackagesController : Controller
     {
         private readonly IRepository<Packages> service;

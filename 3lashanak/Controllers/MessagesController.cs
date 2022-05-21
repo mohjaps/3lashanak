@@ -1,12 +1,14 @@
 ﻿using _3lashanak.Data;
 using _3lashanak.Models;
 using _3lashanak.Models.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace _3lashanak.Controllers
 {
+    [Authorize]
     public class MessagesController : Controller
     {
         private readonly IRepository<Messages> service;

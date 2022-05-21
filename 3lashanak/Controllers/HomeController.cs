@@ -1,5 +1,6 @@
 ﻿using _3lashanak.Data;
 using _3lashanak.Models;
+using _3lashanak.Models.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -16,14 +17,17 @@ namespace _3lashanak.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<IdentityUser> userManager;
         private readonly ApplicationDbContext context;
-
-        public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager, ApplicationDbContext context)
+        private readonly IRepository<ServicePackeges> repository;
+        public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager,
+            ApplicationDbContext context,
+            IRepository<ServicePackeges> repository)
         {
             _logger = logger;
             this.userManager = userManager;
             this.context = context;
+            this.repository = repository;
         }
-
+        
         public async Task<IActionResult> Index()
         {
 
@@ -31,7 +35,7 @@ namespace _3lashanak.Controllers
             {
                 IdentityResult rsult = await userManager.CreateAsync(new IdentityUser() { UserName = "admin", Email = "admin@admin", EmailConfirmed = true }, "admin");
             }
-
+            ViewBag.ServicePackege = repository.GetAll();
 
             return View();
         }

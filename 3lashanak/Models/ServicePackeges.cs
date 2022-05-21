@@ -10,4 +10,5 @@ namespace _3lashanak.Models
         [ForeignKey("PackageId")]
         public Packages Packages { get; set; }
     }
+
 }

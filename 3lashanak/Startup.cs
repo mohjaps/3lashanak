@@ -56,6 +56,7 @@ namespace _3lashanak
             services.AddScoped<IRepository<Settings>, SettingsRepo>();
             services.AddScoped<IRepository<SocialMedia>, SocialMediaRepo>();
             services.AddScoped<IRepository<Service>, ServiceRepo>();
+            services.AddScoped<IRepository<ServicePackeges>, ServicePackegesRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

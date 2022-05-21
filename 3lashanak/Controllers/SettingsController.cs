@@ -1,5 +1,6 @@
 ﻿using _3lashanak.Models;
 using _3lashanak.Models.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace _3lashanak.Controllers
 {
+    [Authorize]
     public class SettingsController : Controller
     {
         private readonly IRepository<Settings> service;

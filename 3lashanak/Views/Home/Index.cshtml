@@ -59,6 +59,7 @@
                         <li class="nav-item">
                             <a class="nav-link mainNavLink" aria-current="page" href="#Packages">الباقات</a>
                         </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link mainNavLink" aria-current="page" href="#WhoUs">من نحن</a>
                         </li>
@@ -151,7 +152,7 @@
                                 <hr>
                                 <ul class="packagesList">
                                   
-                                    
+                                   
 
                                 </ul>
                             </div>
@@ -218,7 +219,16 @@
                                     <hr>
                                     <ul class="packagesList">
                                   
-                                    
+                                    @foreach (var item in (List<ServicePackeges>)ViewBag.ServicePackege)
+                                    {
+                                            @if(item.PackageId == pack.Id)
+                                            {
+                                                  <li class="packagesMember">
+                                                      <img src="/Index/images/Oval.svg" />
+                                                      @item.Service
+                                                      </li>
+                                            } 
+                                    }
 
                                     </ul>
                                 </div>
