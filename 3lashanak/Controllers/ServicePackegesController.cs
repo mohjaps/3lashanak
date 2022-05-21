@@ -22,13 +22,14 @@ namespace _3lashanak.Controllers
             _packege = packege;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var data = await _repository.GetAll();
+            return View(data);
         }
         public async Task<IActionResult> Create()
         {
-            ViewBag.PackageId = new SelectList(await _packege.GetAll(),"Id", "Service");
+            ViewBag.PackageId = new SelectList(await _packege.GetAll(),"Id", "Title");
             return View();
         }
         [HttpPost]
@@ -37,14 +38,14 @@ namespace _3lashanak.Controllers
             if (ModelState.IsValid)
             {
                 _repository.Add(servicePackege);
-                RedirectToAction(nameof(Index));
+               return RedirectToAction(nameof(Index));
             }
             return View();
         }
 
         public async Task<IActionResult> Edit()
         {
-            ViewBag.PackageId = new  SelectList(await _packege.GetAll(), "Id", "Service");
+            ViewBag.PackageId = new  SelectList(await _packege.GetAll(), "Id", "Title");
             return View();
         }
         [HttpPost]
@@ -62,6 +63,12 @@ namespace _3lashanak.Controllers
         {
             var data = _repository.GetOne(Id);
             return View(data);
+        }
+        public IActionResult Delete(int Id)
+        {
+           var service =  _repository.GetOne(Id).Result;
+            var data = _repository.Delete(service);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
