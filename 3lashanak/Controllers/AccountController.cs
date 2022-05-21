@@ -1,4 +1,5 @@
 ﻿using _3lashanak.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace _3lashanak.Controllers
             this.userManager = userManager;
             this.signInManager = signInManager;
         }
+        [Authorize]
         public IActionResult Index()
         {
             return View();
@@ -39,7 +41,7 @@ namespace _3lashanak.Controllers
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(user, model.Password, false, false);
                     if (result.Succeeded)
                     {
-                        return Redirect(returnUrl ?? "/servicePackeges");
+                        return Redirect(returnUrl ?? "/Account");
                     }
                     else
                     {
