@@ -27,44 +27,44 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item active ">
+                        <li id="1" class="sidebar-item">
                             <a class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>لوحة التحكم</span>
                             </a>
                         </li>
-                        <li class="sidebar-item  ">
-                            <a  asp-controller="Messages" asp-action="Index">
+                        <li id="2" class="sidebar-item">
+                            <a class="sidebar-link" asp-controller="Messages" asp-action="Index">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>الرسائل </span>
                             </a>
                         </li>
-                        <li class="sidebar-item  ">
-                            <a  asp-controller="Partners" asp-action="Index">
+                        <li id="3" class="sidebar-item  ">
+                            <a class="sidebar-link" asp-controller="Partners" asp-action="Index">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>المشاركات </span>
                             </a>
                         </li>
-                        <li class="sidebar-item  ">
-                            <a  asp-controller="Packages" asp-action="Index">
+                        <li id="4" class="sidebar-item  ">
+                            <a class="sidebar-link" asp-controller="Packages" asp-action="Index">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>الباقات </span>
                             </a>
                         </li>
-                        <li class="sidebar-item  ">
-                            <a  asp-controller="ServicePackeges" asp-action="Index">
+                        <li id="5" class="sidebar-item  ">
+                            <a class="sidebar-link" asp-controller="ServicePackeges" asp-action="Index">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>خدمات الباقات </span>
                             </a>
                         </li>
-                        <li class="sidebar-item  ">
-                            <a  asp-controller="Settings" asp-action="Index">
+                        <li id="6" class="sidebar-item  ">
+                            <a class="sidebar-link" asp-controller="Settings" asp-action="Index">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>الاعدادات العامة </span>
                             </a>
                         </li>
-                         <li class="sidebar-item ">
-                            <a  asp-controller="SocialMedia" asp-action="Index">
+                         <li id="7" class="sidebar-item ">
+                            <a class="sidebar-link" asp-controller="SocialMedia" asp-action="Index">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span> مواقع التواصل</span>
                             </a>
@@ -100,6 +100,17 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/bootstrap.bundle.min.js"></script>
     @RenderSection("Scripts", false)
+    <script>
+$(document).ready(function() {
+    
+    $(`#${localStorage.getItem("btnActiv")}`).addClass("active");
+    localStorage.setItem("btnActiv", "");
+})
+$("li").click(function() {
+  
+    localStorage.setItem("btnActiv",$(this).attr("id"))
+})
+    </script>
 </body>
 
 </html>
