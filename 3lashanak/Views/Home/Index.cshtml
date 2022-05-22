@@ -14,6 +14,10 @@
     Settings header = _context.Settings.FirstOrDefault(x => x.Key == "الهيدر");
     Settings headerDesc = _context.Settings.FirstOrDefault(x => x.Key == "الوصف");
 
+    Settings googlePlay = _context.Settings.FirstOrDefault(x => x.Key == "قوقل");
+    Settings apple = _context.Settings.FirstOrDefault(x => x.Key == "ابل");
+    Settings appfooter = _context.Settings.FirstOrDefault(x => x.Key == "صورة هاتف");
+
     List<Partners> partners = _context.Partners.ToList();
     List<Service> services = _context.Services.ToList();
     List<Packages> packages = _context.Packages.ToList();
@@ -39,10 +43,10 @@
 
 <body>
     <!-- Navigation Bar -->
-    <div class="container-fluid px-0" style="">
+    <div class="container-fluid px-0" style="position: fixed">
         <nav class="navbar navbar-expand-lg bg-white ">
-            <div class="container-fluid">
-                <a class="navbar-brand " style="padding-right: 135px;"  href="#"><img src="/Index/images/logo 1.png" /></a>
+            <div class="container">
+                <a class="navbar-brand " style=""  href="#"><img src="/Index/images/logo 1.png" /></a>
                 <button class="navbar-toggler"  type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +71,7 @@
                             <a class="nav-link mainNavLink" aria-current="page" href="#Contact">تواصل معنا</a>
                         </li>
                     </ul>
-                    <form class="d-flex"  style="padding-left: 135px!important;"role="search">
+                    <form class="d-flex"  style=""role="search">
                         <a class="btn btnActive" href="@navBtn.Value" type="submit">
                             @navBtn.Name
                         </a>
@@ -136,7 +140,7 @@
             <div class="row row-cols-1 row-cols-md-1 justify-content-center row-cols-lg-3">
                 @foreach(Packages pack in packages.Where(x => !x.IsMajor).Take(1))
                 {
-                    <div class="col-auto mx-auto">
+                    <div class="col-auto mx-auto mt-2">
                         <div class="p-1 colPlckages d-flex flex-column justify-content-between">
                             <div>
                                 <div class="packagesTitleContainer">
@@ -165,7 +169,7 @@
                 @foreach(Packages pack in packages.Where(x => x.IsMajor))
                 {
                     <div class="col-auto mx-auto">
-                        <div class="p-1 colPlckages  d-flex flex-column justify-content-between">
+                        <div class="p-1 colPlckages colPackagesPrimary d-flex flex-column justify-content-between">
                             <div>
                                 <div class="packagesTitleContainer">
                                     <h3 class="packageType">الباقة الربع سنوية</h3>
@@ -322,57 +326,60 @@
         </div>
     </form>
     <footer>
-        <div class="container-fluid TextFooter text-white"  dir="rtl" style="background-image: linear-gradient(0deg,#12A0BD,#a6d7e0);">
+        <div class="container-fluid TextFooter text-white" dir="rtl"
+            style="background-image: linear-gradient(0deg,#12A0BD,#a6d7e0);">
+            <div class="container">
+
             
                 <div class="row">
-                    <div class="col">
+                    <div class="col" style="margin-top: 126px;">
                         <h3>حمل التطبيق الان</h3>
                         <p><i class="bi bi-star"></i>تمتع بخدمات الطريق أينما كنت</p>
                         <p>سعر واحد طيلة العام</p>
-                        <a href="#"><img src="/Index/images/install GooglePaly.png"/></a>
-                        <a href="#"><img src="/Index/images/install IOS.png"/></a>
+                        <a href="@googlePlay.Value"><img src="@googlePlay.Icon" /></a>
+                        <a href="@apple.Value"><img src="@apple.Icon" /></a>
                     </div>
                     <div class="col">
-                        <img src="/Index/images/mobile.png" style="margin-top: 39px; margin-left: 135px;"/>
+                        <img src="@appfooter.Icon" style="margin-top: 39px;" />
                     </div>
-                    
-                </div>
-                <div class="row mt-5 justify-content-center "  style="padding-right:135px !important" >
-                    <div class="col" >
-                        <h5>تابعنا على السوشيال ميديا</h5>
 
-                        @foreach(SocialMedia sm in socialmedia)
+                </div>
+                <div class="row mt-5 justify-content-center " style="">
+                    <div class="col">
+                        <h5>تابعنا على السوشيال ميديا</h5>
+                        @foreach(var item in socialmedia)
                         {
-                            <img src="@sm.Logo" class="m-1" />
+                            <a href="@item.Title">
+                                <img src="@item.Logo" class="m-1" />
+                            </a>
                         }
                     </div>
-                    <div class="col-12 col-md-2" >
-                            <h5>الصفحات</h5>
-                            <p>خدماتنا</p>
-                            <p>الباقات</p>
-                            <p>من نحن</p>
-                            <p>تواصل معنا </p>
+                    <div class="col">
+                        <h5>الصفحات</h5>
+                        <p>خدماتنا</p>
+                        <p>الباقات</p>
+                        <p>من نحن</p>
+                        <p>تواصل معنا </p>
                     </div>
-                    <div class="col-12 col-md" >
+                    <div class="col">
                         <h5>النشرة البريدية</h5>
                         <div class="d-flex">
-                            <input  placeholder="الإيميل" class="inputEmail"/>
+                            <input placeholder="الإيميل" class="inputEmail" />
                             <button class="btnShare">اشترك</button>
                         </div>
-                      
+
                     </div>
-                    <div class="col text-center" >
-                            
-                        <img src="/Index/images/logo 1 1.png"/>
-                           <h6>Powerd by</h6>
-                        <img src="/Index/images/logo 2 1.png">
+                    <div class="col text-center">
+
+                        <img src="/images/logo 1 1.png" />
+                        <h6>Powerd by</h6>
+                        <img src="/images/logo 2 1.png">
                     </div>
                 </div>
-         
-            
+
+            </div>
         </div>
     </footer>
-      
    
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
