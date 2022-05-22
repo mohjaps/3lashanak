@@ -156,7 +156,13 @@
                                 <hr>
                                 <ul class="packagesList">
                                   
-                                   
+                                   @foreach (ServicePackeges item in servicePackeges)
+                                  {
+                                        if(item.PackageId == pack.Id)
+                                        {
+                                            <li>@item.Service</li>
+                                        }
+                                    }
 
                                 </ul>
                             </div>

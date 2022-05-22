@@ -131,7 +131,7 @@ namespace _3lashanak.Seeds
                 {
                     Key = "زر الهيرو",
                     Name = "حمل التطبيق الآن",
-                    Icon = "/Index//images/mobile.png",
+                    Icon = "/Index/images/mobile.png",
                     Type = TypeSettings.Button,
                     Value = "www.google.com"
                 });
@@ -154,7 +154,7 @@ namespace _3lashanak.Seeds
                 {
                     Key = "قوقل",
                     Name="جوجل",
-                    Icon = "/logo/images",
+                    Icon = "/Index/images/install GooglePaly.png",
                     Type = TypeSettings.Text,
                     Value = "www.google.com"
                 });
@@ -162,7 +162,7 @@ namespace _3lashanak.Seeds
                 {
                     Key = "ابل",
                     Name = "ابل",
-                    Icon = "/logo/images",
+                    Icon = "/Index/images/install IOS.png",
                     Type = TypeSettings.Text,
                     Value = "www.apple.com"
                 });
@@ -170,7 +170,7 @@ namespace _3lashanak.Seeds
                 {
                     Key = "صورة هاتف",
                     Name = "صورة هاتف",
-                    Icon = "/logo/images",
+                    Icon = "/Index/images/mobile.png",
                     Type = TypeSettings.Text,
                 });
                 _context.Settings.AddRange(lstSettingsFooter);
