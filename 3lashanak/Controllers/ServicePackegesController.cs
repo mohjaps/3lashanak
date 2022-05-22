@@ -43,10 +43,11 @@ namespace _3lashanak.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Edit()
+        public async Task<IActionResult> Edit(int Id)
         {
             ViewBag.PackageId = new  SelectList(await _packege.GetAll(), "Id", "Title");
-            return View();
+            var data = _repository.GetOne(Id).Result;
+            return View(data);
         }
         [HttpPost]
         public IActionResult Edit(ServicePackeges servicePackege)
@@ -54,14 +55,14 @@ namespace _3lashanak.Controllers
             if (ModelState.IsValid)
             {
                 _repository.Update(servicePackege);
-                RedirectToAction(nameof(Index));
+              return RedirectToAction(nameof(Index));
             }
             return View();
         }
 
         public IActionResult Details(int Id)
         {
-            var data = _repository.GetOne(Id);
+            var data = _repository.GetOne(Id).Result;
             return View(data);
         }
         public IActionResult Delete(int Id)

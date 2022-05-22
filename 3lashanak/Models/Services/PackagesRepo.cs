@@ -1,5 +1,6 @@
 ﻿using _3lashanak.Data;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -47,8 +48,16 @@ namespace _3lashanak.Models.Services
         {
             if (model != null)
             {
-                context.Packages.Update(model);
-                context.SaveChanges();
+                try
+                {
+                    context.Packages.Update(model);
+                    context.SaveChanges();
+                }
+                catch(Exception ex)
+                {
+                    throw;
+                }
+                
                 return true;
             }
             return false;

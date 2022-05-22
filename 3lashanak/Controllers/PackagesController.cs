@@ -28,20 +28,20 @@ namespace _3lashanak.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.DataIsMajor =  service.GetAll().Result.Where(x => x.IsMajor);
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateAsync(Packages collection)
+        public async Task<ActionResult> Create(Packages collection)
         {
             try
             {
                 var items = await service.GetAll();
                 if (items.Count() > 4)
                     return View(collection);
-                if(items.Select(x => x.IsMajor).Count() >= 1)
-                    return View();
+               
                 if (!ModelState.IsValid)
                     return View();
                 if (service.Add(collection))
@@ -68,8 +68,7 @@ namespace _3lashanak.Controllers
                 if (!ModelState.IsValid)
                     return View();
                 var items = await service.GetAll();
-                if (items.Select(x => x.IsMajor).Count() >= 1)
-                    return View();
+               
                 if (service.Update(collection))
                     return RedirectToAction(nameof(Index));
                 return View(collection);
