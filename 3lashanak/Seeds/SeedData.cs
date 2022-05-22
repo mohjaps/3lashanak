@@ -150,6 +150,29 @@ namespace _3lashanak.Seeds
                     Type = TypeSettings.Text,
                     Value = "في أي وقت وأي مكان في ارجاء المملكة !"
                 });
+                lstSettingsFooter.Add(new Settings
+                {
+                    Key = "قوقل",
+                    Name="جوجل",
+                    Icon = "/logo/images",
+                    Type = TypeSettings.Text,
+                    Value = "www.google.com"
+                });
+                lstSettingsFooter.Add(new Settings
+                {
+                    Key = "ابل",
+                    Name = "ابل",
+                    Icon = "/logo/images",
+                    Type = TypeSettings.Text,
+                    Value = "www.apple.com"
+                });
+                lstSettingsFooter.Add(new Settings
+                {
+                    Key = "صورة هاتف",
+                    Name = "صورة هاتف",
+                    Icon = "/logo/images",
+                    Type = TypeSettings.Text,
+                });
                 _context.Settings.AddRange(lstSettingsFooter);
             }
 
