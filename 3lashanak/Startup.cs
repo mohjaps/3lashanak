@@ -29,7 +29,7 @@ namespace _3lashanak
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefalutConnection")));
+            services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefalutConnection")), ServiceLifetime.Transient);
 
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
