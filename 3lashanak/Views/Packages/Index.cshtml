@@ -1,0 +1,46 @@
+﻿@model IEnumerable<_3lashanak.Models.Packages>
+
+@{
+    ViewData["Title"] = "الباقات";
+}
+
+
+
+<p>
+    <a asp-action="Create">اضافة باقة</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                العنوان
+            </th>
+            <th>
+                السعر
+            </th>
+            <th>
+                عرض
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsMajor)
+            </td>
+            <td>
+                @Html.ActionLink("تعديل", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("حذف", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
