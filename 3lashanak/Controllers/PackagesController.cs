@@ -26,8 +26,11 @@ namespace _3lashanak.Controllers
             return View(await service.GetOne(id));
         }
 
-        public ActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var items = await service.GetAll();
+            if (items.Count() >= 3)
+                return RedirectToAction("Index");
             ViewBag.DataIsMajor =  service.GetAll().Result.Where(x => x.IsMajor);
             return View();
         }
@@ -38,9 +41,7 @@ namespace _3lashanak.Controllers
         {
             try
             {
-                var items = await service.GetAll();
-                if (items.Count() > 4)
-                    return View(collection);
+                
                
                 if (!ModelState.IsValid)
                     return View();
@@ -68,7 +69,8 @@ namespace _3lashanak.Controllers
                 if (!ModelState.IsValid)
                     return View();
                 var items = await service.GetAll();
-               
+               if(items.Any(x => x.IsMajor) && collection.IsMajor)
+                    return View(collection);
                 if (service.Update(collection))
                     return RedirectToAction(nameof(Index));
                 return View(collection);
@@ -86,6 +88,10 @@ namespace _3lashanak.Controllers
                 Packages msg = await service.GetOne(id);
                 if (msg is null)
                     return View(nameof(Index));
+                if((await service.GetAll()).Count() < 2)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
                 if (service.Delete(msg))
                     return RedirectToAction(nameof(Index));
                 return View(nameof(Index));

@@ -39,31 +39,37 @@
                                 <span>الرسائل </span>
                             </a>
                         </li>
-                        <li id="3" class="sidebar-item  ">
+                        <li id="3" class="sidebar-item">
+                            <a class="sidebar-link" asp-controller="Service" asp-action="Index">
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>الخدمات </span>
+                            </a>
+                        </li>
+                        <li id="4" class="sidebar-item  ">
                             <a class="sidebar-link" asp-controller="Partners" asp-action="Index">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>المشاركات </span>
                             </a>
                         </li>
-                        <li id="4" class="sidebar-item  ">
+                        <li id="5" class="sidebar-item  ">
                             <a class="sidebar-link" asp-controller="Packages" asp-action="Index">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>الباقات </span>
                             </a>
                         </li>
-                        <li id="5" class="sidebar-item  ">
+                        <li id="6" class="sidebar-item  ">
                             <a class="sidebar-link" asp-controller="ServicePackeges" asp-action="Index">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>خدمات الباقات </span>
                             </a>
                         </li>
-                        <li id="6" class="sidebar-item  ">
+                        <li id="7" class="sidebar-item  ">
                             <a class="sidebar-link" asp-controller="Settings" asp-action="Index">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>الاعدادات العامة </span>
                             </a>
                         </li>
-                         <li id="7" class="sidebar-item ">
+                         <li id="8" class="sidebar-item ">
                             <a class="sidebar-link" asp-controller="SocialMedia" asp-action="Index">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span> مواقع التواصل</span>
@@ -82,9 +88,7 @@
                 </a>
             </header>
 
-            <div class="page-heading">
-                <h3>@ViewData["Title"]</h3>
-                
+            <div class="page-heading">                
             </div> @RenderBody()
         </div>
       

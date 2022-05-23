@@ -41,12 +41,12 @@ namespace _3lashanak.Controllers
                 if (!ModelState.IsValid)
                     return View();
                 if (service.Add(collection))
-                    return RedirectToAction(nameof(Index));
-                return View(collection);
+                    return LocalRedirect("/Home/Index");
+                return LocalRedirect("/Home/Index");
             }
             catch
             {
-                return View();
+                return LocalRedirect("/Home/Index");
             }
         }
 

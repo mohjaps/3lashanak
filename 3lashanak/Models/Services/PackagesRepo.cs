@@ -35,13 +35,13 @@ namespace _3lashanak.Models.Services
 
         public async Task<List<Packages>> GetAll()
         {
-            return await context.Packages.ToListAsync();
+            return await context.Packages.AsNoTracking().ToListAsync();
         }
 
         public async Task<Packages> GetOne(long Id)
         {
 
-            return await context.Packages.FirstOrDefaultAsync(x => x.Id == Id);
+            return await context.Packages.AsNoTracking().FirstOrDefaultAsync(x => x.Id == Id);
         }
 
         public bool Update(Packages model)

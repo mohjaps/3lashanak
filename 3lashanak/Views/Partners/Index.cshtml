@@ -4,10 +4,9 @@
     ViewData["Title"] = "الشركاء";
 }
 
-<h1>Index</h1>
 
 <p>
-    <a asp-action="CreateAsync">Create New</a>
+    <a asp-action="CreateAsync">اضافة شريك</a>
 </p>
 <table class="table table-striped table-bordered text-sm-right"style="direction:rtl!important;">
     <thead  style="width:300px!important">
@@ -16,7 +15,6 @@
                 الصورة
             </th>
             <th>التعديل</th>
-            <th>التفاصيل</th>
             <th>الحذف</th>
         </tr>
     </thead>
@@ -30,9 +28,6 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">تعديل</a> 
                
-            </td>
-               <td>
-                <a asp-action="Details" asp-route-id="@item.Id"  class="btn btn-outline-primary">تفاصيل</a> 
             </td>
               <td>
                 <a asp-action="Delete" asp-route-id="@item.Id"  class="btn btn-outline-danger">حذف</a>

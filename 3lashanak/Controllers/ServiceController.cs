@@ -39,7 +39,7 @@ namespace _3lashanak.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateAsync(Service collection, IFormFile file)
+        public async Task<ActionResult> Create(Service collection, IFormFile file)
         {
             try
             {

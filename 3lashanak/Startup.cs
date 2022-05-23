@@ -28,7 +28,7 @@ namespace _3lashanak
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefalutConnection")), ServiceLifetime.Transient);
 
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
