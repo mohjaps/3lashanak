@@ -82,7 +82,7 @@ namespace _3lashanak.Seeds
                 {
                     Title = "تغيير الإطارات",
                     Description = "وصف عن الخدمة والتفاصيل التي تقدمها تحديداً بشكل موجز",
-                    Icon = "/Index/images/service2.svg",
+                    Icon = "\\Index\\images\\services2.svg",
                 });
                 lstServices.Add(new Service
                 {
