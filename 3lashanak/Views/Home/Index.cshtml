@@ -371,15 +371,16 @@
                     </div>
                     <div class="col">
                         <h5>النشرة البريدية</h5>
+                           <form class="" method="post" asp-controller="Settings" asp-action="Create">
+
                         <div class="d-flex">
-                            <form method="post" asp-controller="Settings" asp-action="Create">
                                 <input name="key" value="Subscribe" hidden  />
                                 <input placeholder="الإيميل" name="Value" class="inputEmail" />
                                 <button class="btnShare text-center">اشترك</button>
-                            </form>
+                           
                             <span class="text-danger">@TempData["SuccessSub"]</span>
                         </div>
-
+                         </form>
                     </div>
                     <div class="col text-center">
 
