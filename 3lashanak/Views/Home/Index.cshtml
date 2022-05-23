@@ -6,23 +6,23 @@
 @inject ApplicationDbContext _context;
 @{
     Layout = null;
-    Settings WhoUs = _context.Settings.FirstOrDefault(x => x.Key == "من نحن");
+    Settings WhoUs =  ViewBag.WhoUs;
 
-    Settings navBtn = _context.Settings.FirstOrDefault(x => x.Key == "زر الهيدر");
-    Settings heroBtn = _context.Settings.FirstOrDefault(x => x.Key == "زر الهيرو");
+    Settings navBtn = ViewBag.navBtn;
+    Settings heroBtn = ViewBag.heroBtn;
 
-    Settings header = _context.Settings.FirstOrDefault(x => x.Key == "الهيدر");
-    Settings headerDesc = _context.Settings.FirstOrDefault(x => x.Key == "الوصف");
+    Settings header = ViewBag.header;
+    Settings headerDesc = ViewBag.headerDesc;
 
-    Settings googlePlay = _context.Settings.FirstOrDefault(x => x.Key == "قوقل");
-    Settings apple = _context.Settings.FirstOrDefault(x => x.Key == "ابل");
-    Settings appfooter = _context.Settings.FirstOrDefault(x => x.Key == "صورة هاتف");
+    Settings googlePlay = ViewBag.googlePlay;
+    Settings apple = ViewBag.apple;
+    Settings appfooter = ViewBag.appfooter;
 
-    List<Partners> partners = _context.Partners.ToList();
-    List<Service> services = _context.Services.ToList();
-    List<Packages> packages = _context.Packages.ToList();
-    List<SocialMedia> socialmedia = _context.SocialMedia.ToList();
-    List<ServicePackeges> servicePackeges = _context.ServicePackeges.ToList();
+    List<Partners> partners = ViewBag.partners;
+    List<Service> services = ViewBag.services;
+    List<Packages> packages = ViewBag.packages;
+    List<SocialMedia> socialmedia = ViewBag.socialmedia;
+    List<ServicePackeges> servicePackeges = ViewBag.servicePackeges;
 }
 
 <!DOCTYPE html>
