@@ -26,6 +26,7 @@ namespace _3lashanak.Seeds
                     Description = "الخدمة الأولى",
                     Price = 200,
                     IsMajor = false,
+                    UrlButton = "https://www.google.com"
                 };
                 Packages package2 = new Packages
                 {
@@ -33,6 +34,7 @@ namespace _3lashanak.Seeds
                     Description = "الخدمة الثانية",
                     Price = 200,
                     IsMajor = false,
+                    UrlButton = "https://www.google.com"
                 };
                 Packages package3 = new Packages
                 {
@@ -40,6 +42,7 @@ namespace _3lashanak.Seeds
                     Description = "الخدمة الثالثة",
                     Price = 200,
                     IsMajor = true,
+                    UrlButton = "https://www.google.com"
                 };
                 List<Packages> lstPackages = new List<Packages>();
                 lstPackages.Add(package1);
@@ -140,7 +143,8 @@ namespace _3lashanak.Seeds
                     Key = "الهيدر",
                     Name = "لا تشيل هم الطريق، خلِه علينا",
                     Type = TypeSettings.Text,
-                    Value = "علينا"
+                    Value = "علينا",
+                    Icon = "/Index/images/Cars.png"
                 });
                 lstSettingsFooter.Add(new Settings
                 {
