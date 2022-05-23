@@ -33,6 +33,7 @@ namespace _3lashanak.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Messages collection)
         {
