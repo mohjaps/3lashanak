@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace _3lashanak.Controllers
@@ -23,7 +24,14 @@ namespace _3lashanak.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            return View(await service.GetAll());
+            var data =  service.GetAll().Result.Where(x => x.Key != "Subscribe").ToList();
+            return View(data);
+        }
+
+        public async Task<IActionResult> GetSubscribe()
+        {
+            var data = service.GetAll().Result.Where(x => x.Key == "Subscribe").ToList();
+            return View(data);
         }
 
         public async Task<IActionResult> Details(long id)
@@ -44,9 +52,9 @@ namespace _3lashanak.Controllers
             {
                 if (!ModelState.IsValid)
                     return View();
-
+                TempData["SuccessSub"] = "تم ارسال طلب اشتراك";
                 if (service.Add(collection))
-                    return RedirectToAction(nameof(Index));
+                    return LocalRedirect("/Home/Index");
                 return View(collection);
             }
             catch
@@ -70,7 +78,7 @@ namespace _3lashanak.Controllers
                     return View();
                 if (file is not null)
                 {
-                    string path = Path.Combine("\\Index", "images", Guid.NewGuid().ToString() + file.FileName);
+                    string path = Path.Combine("/Index/images/"+ Guid.NewGuid().ToString() + file.FileName);
                     using (var Stream = new FileStream(en.WebRootPath + path, FileMode.Create))
                         file.CopyTo(Stream);
                     collection.Icon = path;

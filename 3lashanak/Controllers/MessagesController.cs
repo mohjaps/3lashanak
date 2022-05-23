@@ -41,8 +41,10 @@ namespace _3lashanak.Controllers
             {
                 if (!ModelState.IsValid)
                     return View();
+                TempData["success"] = "تم ارسال الرسالة بنجاح";
                 if (service.Add(collection))
                     return LocalRedirect("/Home/Index");
+
                 return LocalRedirect("/Home/Index");
             }
             catch

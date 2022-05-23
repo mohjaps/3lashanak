@@ -108,7 +108,7 @@
                 <div style="height: 200px;"></div>
             </div>
             <div class="col order-1 order-lg-2 p-0 h-100 d-flex justify-content-end">
-                <img src="/Index/images/heroCar.png" class="img-fluid p-0" alt="Car" />
+                <img src="@header.Icon" asp-append-version="true" class="img-fluid p-0" alt="Car" />
             </div>
         </div>
     </div>
@@ -273,6 +273,7 @@
     </div>
     
     <form id="Contact"  asp-controller="Messages" asp-action="Create" class=" container p-0 mb-5" style="font-family:'Cairo'; color: #323232; font-weight: 400!important;"  method="post">
+          <span class="text-danger">@TempData["success"]</span>
         <p class="text-center" style="font-size: 2rem; margin-bottom: 40px!important;">تواصل معنا </p>
         <div class="formContact bg-white p-5 ">
             <div class="row">
@@ -323,12 +324,13 @@
 
             <div class="row mt-3">
                 <div class="col-lg-12 justify-content-start mt-3">
-                    <button type="submit" class="text-center btnSubmit rounded-3 px-4 float-start ">
+                    <button id="btn" type="submit" class="text-center btnSubmit rounded-3 px-4 float-start ">
                         <i class="bi bi-arrow-right-short" style="font-size: 16px;"></i>
                         ارسال
                     </button>
                 </div>
             </div>
+          
         </div>
     </form>
     <footer>
@@ -370,8 +372,12 @@
                     <div class="col">
                         <h5>النشرة البريدية</h5>
                         <div class="d-flex">
-                            <input placeholder="الإيميل" class="inputEmail" />
-                            <button class="btnShare text-center">اشترك</button>
+                            <form method="post" asp-controller="Settings" asp-action="Create">
+                                <input name="key" value="Subscribe" hidden  />
+                                <input placeholder="الإيميل" name="Value" class="inputEmail" />
+                                <button class="btnShare text-center">اشترك</button>
+                            </form>
+                            <span class="text-danger">@TempData["SuccessSub"]</span>
                         </div>
 
                     </div>
@@ -394,6 +400,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
+        <script>
+
+        </script>
 </body>
 
 </html>
