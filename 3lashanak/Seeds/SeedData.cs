@@ -101,7 +101,7 @@ namespace _3lashanak.Seeds
            
 
             ////////fill Settings who are we
-            if(!_context.Settings.Any(x => x.Key == "who"))
+            if(!_context.Settings.Any(x => x.Key == "من نحن"))
             {
                 List<Settings> lstSettings = new List<Settings>();
                 lstSettings.Add(new Settings
