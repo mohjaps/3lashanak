@@ -16,7 +16,8 @@
 
     Settings googlePlay = ViewBag.googlePlay;
     Settings apple = ViewBag.apple;
-    Settings appfooter = ViewBag.appfooter;
+    Settings appfooter1 = ViewBag.appfooter1;
+    Settings appfooter2 = ViewBag.appfooter2;
 
     List<Partners> partners = ViewBag.partners;
     List<Service> services = ViewBag.services;
@@ -167,7 +168,7 @@
                                 </ul>
                             </div>
                             <div class="packagesFooter">
-                                <a href="@pack.UrlButton"  class="d-inline-block">ابدا الآن</a>
+                                <a href="@pack.UrlButton" style="text-decoration:none;" class="text-white d-inline-block">ابدا الآن</a>
                             </div>
                         </div>
                     </div>
@@ -204,7 +205,7 @@
                                 </ul>
                             </div>
                             <div class="packagesFooter">
-                              <a href="@pack.UrlButton"  class="d-inline-block">ابدا الآن</a>
+                              <a href="@pack.UrlButton" style="text-decoration:none;" class="d-inline-block">ابدا الآن</a>
                             </div>
                         </div>
                     </div>
@@ -243,7 +244,7 @@
                                     </ul>
                                 </div>
                                 <div class="packagesFooter">
-                                    <a href="@pack.UrlButton"  class="d-inline-block">ابدا الآن</a>
+                                    <span><a href="@pack.UrlButton" style="text-decoration:none;" class="d-inline-block text-white">ابدا الآن</a></span>
                                 </div>
                             </div>
                         </div>
@@ -348,7 +349,7 @@
                         <a href="@apple.Value"><img src="@apple.Icon" /></a>
                     </div>
                     <div class="col">
-                        <img src="@appfooter.Icon" style="margin-top: 39px;" class="img-fluid" />
+                        <img src="@appfooter1.Icon" style="margin-top: 39px;" class="img-fluid" />
                     </div>
 
                 </div>
@@ -371,22 +372,22 @@
                     </div>
                     <div class="col">
                         <h5>النشرة البريدية</h5>
-                           <form class="" method="post" asp-controller="Settings" asp-action="Create">
+                           <form id="SubscribeFrom" class="" method="post" asp-controller="Settings" asp-action="Create">
 
                         <div class="d-flex">
                                 <input name="key" value="Subscribe" hidden  />
-                                <input placeholder="الإيميل" type="email" name="Value" class="inputEmail" />
+                                <input placeholder="الإيميل" type="email" required name="Value" class="inputEmail" />
                                 <button class="btnShare text-center">اشترك</button>
                            
-                            <span class="text-danger">@TempData["SuccessSub"]</span>
+                            <span class="text-white">@TempData["SuccessSub"]</span>
                         </div>
                          </form>
                     </div>
                     <div class="col text-center">
 
-                        <img src="@ViewBag.appfooter1" />
+                        <img src="@appfooter1.Icon" />
                         <h6>Powerd by</h6>
-                        <img src="@ViewBag.appfooter2">
+                        <img src="@appfooter2.Icon">
                     </div>
                 </div>
 
@@ -402,7 +403,7 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
         <script>
-
+            $("#SubscribeFrom").validate();
         </script>
 </body>
 

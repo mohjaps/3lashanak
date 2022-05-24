@@ -51,8 +51,8 @@ namespace _3lashanak.Controllers
            ViewBag.googlePlay = await _context.Settings.FirstOrDefaultAsync(x => x.Key == "قوقل");
            ViewBag.apple = await _context.Settings.FirstOrDefaultAsync(x => x.Key == "ابل");
            ViewBag.appfooter = await _context.Settings.FirstOrDefaultAsync(x => x.Key == "صورة هاتف");
-           ViewBag.appfooter1 = await _context.Settings.FirstOrDefaultAsync(x => x.Key == " لوغو1");
-           ViewBag.appfooter2 = await _context.Settings.FirstOrDefaultAsync(x => x.Key == " لوغو2");
+           ViewBag.appfooter1 = await _context.Settings.FirstOrDefaultAsync(x => x.Key == "لوغو1");
+           ViewBag.appfooter2 = await _context.Settings.FirstOrDefaultAsync(x => x.Key == "لوغو2");
 
             ViewBag.partners = await _context.Partners.ToListAsync();
             ViewBag.services = await _context.Services.ToListAsync();

@@ -44,6 +44,7 @@ namespace _3lashanak.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateAsync(Settings collection)
@@ -51,7 +52,12 @@ namespace _3lashanak.Controllers
             try
             {
                 if (!ModelState.IsValid)
-                    return View();
+                {
+                    TempData["SuccessSub"] = "يرجى ادخال ايميل بشكل صحيح";
+                    return LocalRedirect("/Home/Index");
+                   
+                }
+                    
                 TempData["SuccessSub"] = "تم ارسال طلب اشتراك";
                 if (service.Add(collection))
                     return LocalRedirect("/Home/Index");
@@ -68,6 +74,7 @@ namespace _3lashanak.Controllers
             return View(await service.GetOne(id));
         }
 
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public  ActionResult Edit(Settings collection, IFormFile file)
