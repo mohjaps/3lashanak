@@ -40,7 +40,7 @@ namespace _3lashanak.Models.Services
         public async Task<Settings> GetOne(long Id)
         {
 
-            return await context.Settings.FirstOrDefaultAsync(x => x.Id == Id);
+            return await context.Settings.AsNoTracking().FirstOrDefaultAsync(x => x.Id == Id);
         }
 
         public bool Update(Settings model)

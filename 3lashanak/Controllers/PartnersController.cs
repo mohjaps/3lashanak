@@ -83,6 +83,12 @@ namespace _3lashanak.Controllers
                         file.CopyTo(Stream);
                     collection.Image = path;
                 }
+                else
+                {
+                    var x = service.GetOne(collection.Id).Result;
+
+                    collection.Image = x.Image;
+                }
                 if (service.Update(collection))
                     return RedirectToAction(nameof(Index));
                 return View(collection);

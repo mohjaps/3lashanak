@@ -70,7 +70,7 @@ namespace _3lashanak.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Settings collection, IFormFile file)
+        public  ActionResult Edit(Settings collection, IFormFile file)
         {
             try
             {
@@ -83,9 +83,25 @@ namespace _3lashanak.Controllers
                         file.CopyTo(Stream);
                     collection.Icon = path;
                 }
-                if (service.Update(collection))
+                else
+                {
+                    var x = service.GetOne(collection.Id).Result;
+
+                    collection.Icon = x.Icon;
+                }
+             
+                var data = new Settings
+                {
+                    Icon = collection.Icon,
+                    Key = collection.Key,
+                    Id = collection.Id,
+                    Name = collection.Name,
+                    Type = collection.Type,
+                    Value  = collection.Value
+                };
+                if (service.Update(data))
                     return RedirectToAction(nameof(Index));
-                return View(collection);
+                return View();
             }
             catch
             {

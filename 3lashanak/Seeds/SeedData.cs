@@ -177,6 +177,20 @@ namespace _3lashanak.Seeds
                     Icon = "/Index/images/mobile.png",
                     Type = TypeSettings.Text,
                 });
+                lstSettingsFooter.Add(new Settings
+                {
+                    Key = "لوغو1",
+                    Name = "صورة لوغو سفلي1",
+                    Icon = "/Index/images/mobile.png",
+                    Type = TypeSettings.Text,
+                });
+                lstSettingsFooter.Add(new Settings
+                {
+                    Key = "لوغو2",
+                    Name = "صورة لوغو سفلي2",
+                    Icon = "/Index/images/mobile.png",
+                    Type = TypeSettings.Text,
+                });
                 _context.Settings.AddRange(lstSettingsFooter);
             }
 

@@ -89,7 +89,12 @@ namespace _3lashanak.Controllers
                         file.CopyTo(Stream);
                     collection.Icon = path;
                 }
+                else
+                {
+                    var x = service.GetOne(collection.Id).Result;
 
+                    collection.Icon = x.Icon;
+                }
                 if (service.Update(collection))
                     return RedirectToAction(nameof(Index));
                 return View(collection);

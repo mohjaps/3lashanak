@@ -358,7 +358,7 @@
                         @foreach(var item in socialmedia)
                         {
                             <a href="@item.Title">
-                                <img src="@item.Logo" class="m-1" />
+                                <img src="@item.Logo" asp-append-version="true" class="m-1" />
                             </a>
                         }
                     </div>
@@ -375,7 +375,7 @@
 
                         <div class="d-flex">
                                 <input name="key" value="Subscribe" hidden  />
-                                <input placeholder="الإيميل" name="Value" class="inputEmail" />
+                                <input placeholder="الإيميل" type="email" name="Value" class="inputEmail" />
                                 <button class="btnShare text-center">اشترك</button>
                            
                             <span class="text-danger">@TempData["SuccessSub"]</span>
@@ -384,9 +384,9 @@
                     </div>
                     <div class="col text-center">
 
-                        <img src="/Index/images/logo 1 1.png" />
+                        <img src="@ViewBag.appfooter1" />
                         <h6>Powerd by</h6>
-                        <img src="/Index/images/logo 2 1.png">
+                        <img src="@ViewBag.appfooter2">
                     </div>
                 </div>
 
